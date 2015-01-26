@@ -37,7 +37,7 @@
 (defvar eab/compile-map (make-sparse-keymap)
   "Compile keymap.")
 
-(define-key eab/compile-map (kbd "a") 'eab/compile-anything)
+(define-key eab/compile-map (kbd "a") 'eab/compile-helm)
 (define-key eab/compile-map (kbd "d") 'projectile-compile-project)
 (define-key eab/compile-map (kbd "s") 'smart-compile)
 (define-key eab/compile-map (kbd "l") (ilam (TeX-command "LaTeX" 'TeX-master-file)))
@@ -176,7 +176,7 @@
 (define-key eab/temacs-map (kbd "O") 'esc-toggle-window-selectability)
 (define-key eab/temacs-map (kbd "M-f") 'ispell-change-dictionary)
 (define-key eab/temacs-map (kbd "F") 'flyspell-mode)
-(define-key eab/temacs-map (kbd "g") 'anything-google-suggest)
+(define-key eab/temacs-map (kbd "g") 'helm-google-suggest)
 (define-key eab/temacs-map (kbd ".") eab/one-key-map) ;; temacs.
 (define-key eab/temacs-map (kbd "x") 'kmacro-keymap)
 (define-key eab/temacs-map (kbd "/") 'toggle-letter-case)
@@ -345,7 +345,7 @@
 (global-set-key (kbd "C-x G") 'moccur-grep)
 (global-set-key (kbd "C-x M-f") 'find-file-at-point)
 (global-set-key (kbd "C-x M-p") 'w3m-browse-url)
-(global-set-key (kbd "C-x a a") 'anything)
+;; (global-set-key (kbd "C-x a a") )
 (global-set-key (kbd "C-x b") 'eab/switch-to-buffer)
 (global-set-key (kbd "C-x c") 'customize-variable)
 
@@ -368,7 +368,7 @@
 (global-set-key (kbd "M-,") 'kmacro-end-or-call-macro)
 (global-set-key (kbd "M-.") 'eab/etags-find-or-pop) ;; вместе с тэгами используются eab/find-function-at-point или jedi
 (global-set-key (kbd "M-/") 'dabbrev-expand)
-;; (global-set-key (kbd "M-?") 'anything-dabbrev-expand)
+;; (global-set-key (kbd "M-?") 'helm-dabbrev)
 (global-set-key (kbd "M-?") (ilam (auto-complete)))
 (global-set-key (kbd "M-1") 'delete-other-windows)
 (global-set-key (kbd "M-2") 'split-window-vertically)
@@ -437,7 +437,7 @@
 (global-set-key (kbd "s-d") (ilam (anything 'anything-c-source-ls-download)))
 (global-set-key (kbd "s-e") 'expectations-execute)
 (global-set-key (kbd "s-f") 'eab/see-file)
-(global-set-key (kbd "s-g") 'anything-google-suggest)
+(global-set-key (kbd "s-g") 'helm-google-suggest)
 (global-set-key (kbd "s-h") 'eab/hron-todo)
 (global-set-key (kbd "s-H") 'org-clock-in)
 (global-set-key (kbd "C-s-h") 'org-clock-out)
@@ -487,7 +487,7 @@
 (define-key minibuffer-local-map (kbd "s-SPC") 'eab/ido-see-file) ;; temacs
 (define-key minibuffer-local-map (kbd "C-q") 'quoted-insert)
 (define-key minibuffer-local-map (kbd "M-;") 'isearch-backward)
-(define-key minibuffer-local-map (kbd "M-:") 'anything-minibuffer-history)
+(define-key minibuffer-local-map (kbd "M-:") 'helm-minibuffer-history)
 (define-key minibuffer-local-map (kbd "M-k") 'next-history-element) ;; DONE not usable
 ;; TODO надо C-y, теперь уже C-l, везде сделать переменной
 (define-key minibuffer-local-map (kbd "C-l M-i") 'previous-line)
@@ -637,8 +637,7 @@
   (define-key ac-completing-map "\C-s" 'ac-isearch)
   (define-key ac-complete-mode-map (kbd "M-c") 'ac-expand-common)
   (define-key ac-complete-mode-map (kbd "M-k") 'ac-next)
-  (define-key ac-complete-mode-map (kbd "M-i") 'ac-previous)
-  (define-key ac-complete-mode-map (kbd "M-:") 'ac-complete-with-anything))
+  (define-key ac-complete-mode-map (kbd "M-i") 'ac-previous))
 
 (eab/add-hook bookmark-bmenu-mode-hook eab/bookmark-bmenu-mode-hook
   (define-key bookmark-bmenu-mode-map (kbd "M-s") 'nil)
@@ -1104,8 +1103,8 @@
 
 (add-hook 'py-shell-hook
 	  (lambda () (progn
-		       (define-key py-shell-map (kbd "<tab>") 'anything-ipython-complete)
-		       (define-key py-shell-map (kbd "TAB") 'anything-ipython-complete)
+		       ;; (define-key py-shell-map (kbd "<tab>") ')
+		       ;; (define-key py-shell-map (kbd "TAB") ')
 		       )) 't) ;; to the end!!
 
 (add-hook 'maplev-mode-hook

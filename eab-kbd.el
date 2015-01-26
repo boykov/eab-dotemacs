@@ -20,6 +20,7 @@
   (puthash 'execute-extended-command 'eab/smex-limited-commands eab/replace-command)
   (puthash 'forward-sexp 'sp-forward-sexp eab/replace-command)
   (puthash 'transpose-sexps 'sp-transpose-sexp eab/replace-command)
+  (puthash 'undo 'undo-tree-undo eab/replace-command)
   (puthash 'backward-sexp 'sp-backward-sexp eab/replace-command))
   ;; )
 
@@ -427,7 +428,7 @@
 (global-set-key (kbd "M-v") 'yank)
 (global-set-key (kbd "M-w") 'shrink-whitespaces)
 (global-set-key (kbd "M-x") 'kill-region)
-(global-set-key (kbd "M-z") 'undo-tree-undo)
+(global-set-key (kbd "M-z") (ilam (rcmd 'undo)))
 (global-set-key (kbd "M-~") 'switch-to-previous-frame)
 (global-set-key (kbd "s-,") 'kmacro-end-or-call-macro-repeat)
 (global-set-key (kbd "s-.") nil)
@@ -610,14 +611,14 @@
 
 ;; DONE это ведь то же самое, что просто вызов (eab/free-map git-commit-mode-map)
 
-(eab/add-hook git-commit-mode-hook eab/git-commit-hook
-  (eab/free-map git-commit-mode-map))
+;; (eab/add-hook git-commit-mode-hook eab/git-commit-hook
+;;   (eab/free-map git-commit-mode-map))
 
 ;; TODO плохая зависимость от eab/free-map, которая может еще не
 ;; существовать на момент вызова (log-edit-mode) в ergoemacs-mode
 ;; это даже при запуске (el-get 'sync eab/el-get-sources)
-(eab/add-hook log-edit-mode-hook eab/log-edit-hook
-  (eab/free-map log-edit-mode-map))
+;; (eab/add-hook log-edit-mode-hook eab/log-edit-hook
+;;   (eab/free-map log-edit-mode-map))
 
 (eab/add-hook etags-select-mode-hook eab/etags-select-hook
 	      )

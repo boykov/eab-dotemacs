@@ -4,8 +4,8 @@
 	eab-dotemacs
 	cl-lib
 	ergoemacs-keybindings ;; no elpa, eab fix
-	anything-match-plugin ;; need by anything-config
-	anything-config
+	;; anything-match-plugin ;; need by anything-config
+	;; anything-config
 	ace-jump-mode ;; eab
 	anything
 	org-mode
@@ -40,7 +40,7 @@
 	grep-a-lot
 	wgrep
 	undo-tree
-	workgroups
+	;; workgroups
 	edit-list
 	yasnippet
 	))

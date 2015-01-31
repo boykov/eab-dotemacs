@@ -7,7 +7,7 @@
 	;; anything-match-plugin ;; need by anything-config
 	;; anything-config
 	ace-jump-mode ;; eab
-	anything
+	;; anything
 	org-mode
 
 	))

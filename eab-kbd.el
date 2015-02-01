@@ -8,6 +8,7 @@
 ;; Status: not intended to be distributed yet
 
 (require 'eab-minimal)
+(require 'eab-kbd-ext)
 
 ;; TODO это временное средство, пока перемещаю сюда команды, которые
 ;; не доступны в dpemacs
@@ -610,8 +611,8 @@
 
 ;; DONE это ведь то же самое, что просто вызов (eab/free-map git-commit-mode-map)
 
-;; (eab/add-hook git-commit-mode-hook eab/git-commit-hook
-;;   (eab/free-map git-commit-mode-map))
+(eab/add-hook git-commit-mode-hook eab/git-commit-hook
+  (eab/free-map git-commit-mode-map))
 
 ;; TODO плохая зависимость от eab/free-map, которая может еще не
 ;; существовать на момент вызова (log-edit-mode) в ergoemacs-mode

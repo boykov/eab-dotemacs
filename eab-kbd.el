@@ -758,6 +758,7 @@
 
 (eab/add-hook twittering-mode-hook eab/twittering-hook
   (define-key twittering-mode-map (kbd "u") 'eab/twittering-update-status-interactive)
+  (define-key twittering-mode-map (kbd "d") 'ace-link-info)
   (define-key twittering-mode-map (kbd "M-v") 'nil)
   (define-key twittering-mode-map (kbd "C-v") 'nil)
   (define-key twittering-mode-map (kbd "@") 'eab/twit-filter)

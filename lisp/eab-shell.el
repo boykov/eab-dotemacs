@@ -1,4 +1,11 @@
-;; require
+;;; eab-shell.el --- 
+
+;; Copyright (C) 2010, 2011, 2012, 2013, 2014, 2015 Evgeny Boykov
+;;
+;; Author: artscan@list.ru
+;; Keywords: 
+;; Requirements: 
+;; Status: not intended to be distributed yet
 
 (defun eab/over-bash (comhead comstr)
   "Run comhead with comstr over bash -i -c."

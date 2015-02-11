@@ -1,3 +1,12 @@
+;;; eab-shell-utils.el --- 
+
+;; Copyright (C) 2010, 2011, 2012, 2013, 2014, 2015 Evgeny Boykov
+;;
+;; Author: artscan@list.ru
+;; Keywords: 
+;; Requirements: async-eval abbrev
+;; Status: not intended to be distributed yet
+
 ;; (shell-command "xmodmap -e 'keycode 135 = Hyper_R'")
 ;; (shell-command "xmodmap -e 'keycode 95 = Hyper_R'")
 

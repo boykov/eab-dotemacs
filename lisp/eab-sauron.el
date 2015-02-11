@@ -1,3 +1,13 @@
+;;; eab-sauron.el --- 
+
+;; Copyright (C) 2010, 2011, 2012, 2013, 2014, 2015 Evgeny Boykov
+;;
+;; Author: artscan@list.ru
+;; Keywords: 
+;; Requirements: sauron sauron-org sauron-notifications
+;; Status: not intended to be distributed yet
+
+
 (require 'sauron)
 (require 'sauron-org)
 (require 'sauron-notifications)

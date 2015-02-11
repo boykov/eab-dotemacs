@@ -89,7 +89,7 @@
 
 (defun eab/mcb (arg)
   (interactive "P")
-  (if (eab/ondaemon "server")
+  (if (and (fboundp 'eab/ondaemon) (eab/ondaemon "server"))
       (if (eq (call-process-shell-command "wmctrl -l | grep emacsserverP") 0)
 	  (eab/ido-serverp)))
   (if arg

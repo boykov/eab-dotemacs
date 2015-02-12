@@ -16,7 +16,7 @@
 ;; TODO в temacs проблемы с производительностью у команды sp-forward-sexp в latex-mode
 (progn
   (puthash 'kill-buffer 'close-current-buffer eab/replace-command)
-  (puthash 'other-window 'move-cursor-next-pane eab/replace-command)
+  (puthash 'other-window 'ace-window eab/replace-command)
   (puthash 'switch-to-buffer 'eab/cxb eab/replace-command)
   (puthash 'execute-extended-command 'eab/smex-limited-commands eab/replace-command)
   (puthash 'forward-sexp 'sp-forward-sexp eab/replace-command)
@@ -393,7 +393,7 @@
 (global-set-key (kbd "M-N") 'beginning-of-defun)
 (global-set-key (kbd "M-O") 'forward-paragraph)
 (global-set-key (kbd "M-Q") 'close-current-buffer)
-(global-set-key (kbd "M-S") 'move-cursor-previous-pane)
+;; (global-set-key (kbd "M-S") 'move-cursor-previous-pane)
 (global-set-key (kbd "C-S-SPC") 'mark-defun)
 (global-set-key (kbd "M-S-SPC") 'mark-paragraph)
 (global-set-key (kbd "M-SPC") 'set-mark-command)

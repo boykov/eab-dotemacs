@@ -1,0 +1,45 @@
+(if (fboundp 'eab/postload-minimal)
+    (eab/postload-minimal))
+
+(require 'power-macros)
+
+(if (string= (file-name-nondirectory power-macros-file) "eab-pmacros.el") 
+    (load power-macros-file))
+
+(defun eab/load-personal-minimal ()
+  (interactive)
+  ;; TODO don't setup defadvice wg-switch-to-workgroup before it
+  (eab/workgroups-save-file-load)
+  (ignore-errors (let ((dir (eab/desktop-dir)))
+		   (if (file-exists-p (concat dir ".emacs.desktop"))
+		       (desktop-read dir))))
+  (winner-mode)
+  (inferior-moz-start-process))
+
+(if (and (eab/ondaemon "serverP") (not noninteractive))
+    (progn
+      (eab/load-personal-minimal)
+      (load-theme 'tsdh-dark)))
+
+(setq desktop-load-locked-desktop 't)
+(if (and (not noninteractive))
+    (progn
+      (if (not dotemacs-loaded-ok)
+	  (add-to-list 'mode-line-modes '(t " [ERROR] ")))
+      ;; TODO раньше был nil, потом стало глючить
+      ;; из-за enable-local-variables
+      (setq-default TeX-master t)))
+
+;; TODO приходится вручную еще раз запускать, почему?
+;; может быть это связано с нововведением dbus-launch?
+;; Наоборот, пришлось убрать dbus-launch, т.к. из-за него
+;; накапливались лишние процессы, а все по-прежнему
+(when (and
+       (eq window-system 'x)
+       (fboundp 'dbus-register-signal))
+  (dbus-register-signal
+   :session nil "/org/gnome/evince/Window/0"
+   "org.gnome.evince.Window" "SyncSource"
+   'th-evince-sync))
+
+(setq default-input-method "russian-computer")

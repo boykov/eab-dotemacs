@@ -379,7 +379,7 @@
 (defun eab/get-all-csum ()
   (load eab/org-file)
   (let* ((current-encoded
-	  (apply 'encode-time  (org-parse-time-string (eab/hron-add-current -1 -45))))
+	  (apply 'encode-time  (org-parse-time-string (eab/hron-add-current 0 0))))
 	 (year (- (string-to-number (format-time-string "%Y" current-encoded)) 1))
 	 (min
 	  (number-to-string (string-to-number (format-time-string "%M" current-encoded))))

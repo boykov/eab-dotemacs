@@ -14,6 +14,7 @@
 
 (setq eab/package-sources-minimal
       '(
+	popwin
 	moz
 	expand-region
 	multiple-cursors

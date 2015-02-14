@@ -1,3 +1,5 @@
+(require 'smart-compile)
+
 (setq compile-command "make ")
 
 (defun eab/compile (&optional cmd)

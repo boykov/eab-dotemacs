@@ -14,6 +14,7 @@
 
 (setq eab/package-sources-minimal
       '(
+	smart-compile
 	popwin
 	moz
 	expand-region

@@ -14,6 +14,8 @@
 
 (setq eab/package-sources-minimal
       '(
+	etags-table
+	etags-select
 	helm
 	helm-descbinds
 	smart-compile

@@ -14,6 +14,8 @@
 
 (setq eab/package-sources-minimal
       '(
+	helm
+	helm-descbinds
 	smart-compile
 	popwin
 	moz

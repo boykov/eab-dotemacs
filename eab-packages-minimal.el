@@ -14,6 +14,7 @@
 
 (setq eab/package-sources-minimal
       '(
+	auto-dictionary ;; switcher for flyspell
 	auto-complete ;; depend
 	;; auto-complete-emacs-lisp ;; no melpa depend auto-complete
 	howdoi

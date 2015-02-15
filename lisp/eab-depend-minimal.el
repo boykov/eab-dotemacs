@@ -31,8 +31,6 @@
 
 (require 'top-mode)
 
-(require 'ace-jump-mode)
-
 (require 'expand-region)
 ;; (require 'mark-more-like-this)
 (require 'multiple-cursors) ;; fix mc/keymap

@@ -30,6 +30,15 @@
       ;; из-за enable-local-variables
       (setq-default TeX-master t)))
 
+(defun eab/test-dotemacs ()
+  (if dotemacs-loaded-ok
+      (progn
+	(server-eval-at "server" '(sauron-add-event 'eab 3 "OK Dotemacs is loaded! Expectations OK!"))
+	(kill-emacs))
+    (progn
+	(server-eval-at "server" '(sauron-add-event 'eab 3 "Dotemacs is failed!"))
+	(kill-emacs))))
+
 ;; TODO приходится вручную еще раз запускать, почему?
 ;; может быть это связано с нововведением dbus-launch?
 ;; Наоборот, пришлось убрать dbus-launch, т.к. из-за него

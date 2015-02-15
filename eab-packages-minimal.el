@@ -14,6 +14,10 @@
 
 (setq eab/package-sources-minimal
       '(
+	auto-complete ;; depend
+	;; auto-complete-emacs-lisp ;; no melpa depend auto-complete
+	howdoi
+	ac-dabbrev
 	etags-table
 	etags-select
 	helm

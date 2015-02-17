@@ -9,11 +9,12 @@
 	ace-jump-mode ;; eab
 	;; anything
 	org-mode
-
+	eev-current
 	))
 
 (setq eab/package-sources-minimal
       '(
+	key-chord
 	auto-dictionary ;; switcher for flyspell
 	auto-complete ;; depend
 	;; auto-complete-emacs-lisp ;; no melpa depend auto-complete

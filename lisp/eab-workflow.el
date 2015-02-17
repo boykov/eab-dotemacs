@@ -8,6 +8,9 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Workflow
 
+(require 'key-chord)
+(setq key-chord-two-keys-delay 0.05)
+
 (defun er/add-text-mode-expansions ()
   (make-variable-buffer-local 'er/try-expand-list)
   (setq er/try-expand-list (append

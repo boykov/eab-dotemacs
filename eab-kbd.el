@@ -122,6 +122,8 @@
 (define-key eab/temacs-map (kbd "p") 'org-priority-up)
 (define-key eab/temacs-map (kbd "j") 'org-metaleft)
 (define-key eab/temacs-map (kbd "l") 'org-metaright)
+(define-key eab/temacs-map (kbd "<tab>") (ilam (progn (show-all) (run-hook-with-args 'org-cycle-hook 'all))))
+(define-key eab/temacs-map (kbd "<backtab>") 'org-content)
 (define-key eab/temacs-map (kbd "w") 'whitespace-mode)
 (define-key eab/temacs-map (kbd "W") 'subword-mode)
 
@@ -529,6 +531,9 @@
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; add-hook
+
+(eab/add-hook rec-mode-hook eab/rec-hook
+  )
 
 (eab/add-hook proced-mode-hook eab/proced-hook
   (define-key proced-mode-map (kbd "O") 'top))

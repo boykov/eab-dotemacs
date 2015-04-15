@@ -39,6 +39,7 @@
 (setq compilation-scroll-output 't)
 
 (add-hook 'compilation-filter-hook 'colorize-compilation-buffer)
+;; (add-hook 'compilation-mode-hook 'rename-uniquely)
 
 (defun eab/gr-status ()
   (interactive)

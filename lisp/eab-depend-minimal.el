@@ -23,7 +23,7 @@
 
 (require 'smartparens) ;; fix boundp sp-keymap
 (require 'smartparens-latex)
-(smartparens-global-mode)
+;; (smartparens-global-mode)
 
 (setq sp-ignore-modes-list nil)
 

@@ -15,8 +15,13 @@
   (interactive)
   (let ((commands (append (nthcar 10 smex-ido-cache) extended-command-history))) ;; smex-ido-cache))
     (smex-read-and-run commands)))
-;; TODO remove from extended-command-history all that not in obarray 
 
+;; DONE remove from extended-command-history all that not in obarray
+(defun eab/clear-extended-history ()
+  (interactive)
+  (setq extended-command-history
+	(let ((oblist (all-completions "" obarray 'fboundp)))
+	  (remove-if-not (lambda (x) (member x oblist)) extended-command-history))))
 
 ;; DONE переместить курсор в конец текста после вызова
 ;; всё дело в (car choices)

@@ -9,6 +9,25 @@
 
 (require 'workgroups2)
 
+(setq eab/wg-workgroups-history ())
+
+(defun eab/wg-add-workgroup-to-history (id)
+  (interactive)
+  (setq eab/wg-workgroups-history
+	(reverse
+	 (remove-duplicates
+	  (reverse
+	   (append (list id) eab/wg-workgroups-history))))))
+
+(defadvice wg-switch-to-workgroup (before eab-wg-switch-to-workgroup activate)
+  (let ((workgroup (wg-current-workgroup t)))
+    (if workgroup
+	(eab/wg-add-workgroup-to-history (wg-workgroup-uid workgroup)))))
+
+;; (ad-remove-advice 'wg-switch-to-workgroup 'before 'eab-wg-set-previous-workgroup)
+;; (ad-deactivate 'wg-switch-to-workgroup)
+
+
 (if (not (boundp 'eab/workgroups-save))
     (setq eab/workgroups-save wg-session-file))
 

@@ -219,7 +219,7 @@
 (define-key eab/wg-map (kbd "i") (ilam (eab/wg-switch-to-workgroup "bib")))
 (define-key eab/wg-map (kbd "w") 'twit)
 (define-key eab/wg-map (kbd "p") (ilam (eab/switch-wmctrl-window "Ying")))
-(define-key eab/wg-map (kbd "p") (ilam (eab/wg-switch-to-workgroup "path")))
+(define-key eab/wg-map (kbd "p") 'wg-switch-to-previous-workgroup)
 ;; (define-key eab/wg-map (kbd "e") (ilam (eab/twit-search "emacs")))
 (define-key eab/wg-map (kbd "[") (ilam (eab/twit-search "хазин")))
 (define-key eab/wg-map (kbd "]") (ilam (eab/twit-search "фурсов")))
@@ -868,6 +868,7 @@
   (define-key grep-mode-map (kbd "B") 'eab/switch-grep-prev)
   (define-key grep-mode-map (kbd "F") 'eab/switch-grep-next)
   (define-key grep-mode-map (kbd "M-p") 'nil)
+  (define-key grep-mode-map (kbd "g") (ilam (let ((compilation-buffer-name-function nil)) (recompile))))
   (define-key grep-mode-map (kbd "M-n") 'nil)
   (define-key grep-mode-map (kbd "C-w") 'wgrep-change-to-wgrep-mode))
 

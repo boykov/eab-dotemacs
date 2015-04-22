@@ -1,6 +1,19 @@
 (require 'smart-compile)
 
 (setq compile-command "make ")
+(setq compilation-buffer-name-function (lambda (mode) (concat "*" (downcase mode) ": " (buffer-name) "*")))
+
+;; TODO This variable may be risky if used as a file-local variable.
+(defun eab/toggle-recompile-on-save ()
+  (interactive)
+  (if (member 'recompile after-save-hook)
+      (progn
+	(setq after-save-hook
+	      (remove 'recompile after-save-hook))
+	(message "No longer recompiling after saving."))
+    (progn
+      (add-to-list 'after-save-hook 'recompile)
+      (message "Recompiling after saving."))))
 
 (defun eab/compile (&optional cmd)
   (interactive)

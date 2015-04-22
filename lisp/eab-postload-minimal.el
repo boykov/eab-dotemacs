@@ -10,6 +10,8 @@
   (interactive)
   ;; TODO don't setup defadvice wg-switch-to-workgroup before it
   (eab/workgroups-save-file-load)
+  (if (fboundp 'grep-a-lot-clear-stack)
+      (grep-a-lot-clear-stack))
   (ignore-errors (let ((dir (eab/desktop-dir)))
 		   (if (file-exists-p (concat dir ".emacs.desktop"))
 		       (desktop-read dir))))

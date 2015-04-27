@@ -32,8 +32,9 @@
 (defun eab-protocol-send-string (string)
   (setq eab-send-string (org-link-unescape string))
   (shell-command "wmctrl -a \"minibuffer\"")
-  (select-frame eab-minibuffer-frame)
-  (call-interactively 'eab/ido-firefox-urls)
+  (save-window-excursion
+    (select-frame eab-minibuffer-frame)
+    (call-interactively 'eab/ido-firefox-urls))
   (eab/ido-firefox)
   nil)
 

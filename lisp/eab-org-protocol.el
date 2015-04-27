@@ -46,10 +46,16 @@
 
 (defun eab/ido-firefox-urls ()
   (interactive)
-  (let* ((cand (ido-completing-read "Firefox Urls: " (cdr (eab/firefox-get-urls 't))))
-	 (num (cl-position-if (lambda (x) (if (string= cand x) 't nil)) (eab/firefox-get-urls nil))))
-      (with-temp-buffer
-	(insert (concat "gBrowser.mTabContainer.selectedIndex = " (number-to-string num) ";"))
+  (let* ((cand
+	  (ido-completing-read "Firefox Urls: " (cdr (eab/firefox-get-urls 't))))
+	 (num
+	  (cl-position-if
+	   (lambda (x) (if (string= cand x) 't nil))
+	   (eab/firefox-get-urls nil))))
+    (with-temp-buffer
+      (insert
+       (concat
+	"gBrowser.mTabContainer.selectedIndex = " (number-to-string num) ";"))
 	(moz-send-region (point-min) (point-max)))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

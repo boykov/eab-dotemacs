@@ -857,6 +857,7 @@
   (define-key comint-mode-map (kbd "C-n") 'comint-next-input))
 
 (eab/add-hook compilation-mode-hook eab/compilation-hook
+  (define-key compilation-mode-map (kbd "g") (ilam (let ((compilation-buffer-name-function nil)) (recompile))))
   (define-key compilation-mode-map (kbd "\C-d") eab/compile-map)
   (define-key compilation-mode-map (kbd "\C-o") 'nil)
   (define-key compilation-mode-map (kbd "M-k") 'nil)

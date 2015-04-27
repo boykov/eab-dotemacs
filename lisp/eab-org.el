@@ -28,6 +28,7 @@
     (setq eab/org-publish-directory "ERROR"))
 
 (add-hook 'bibtex-mode-hook (lambda () (bibtex-set-dialect 'BibTeX)))
+(add-hook 'grep-mode-hook 'org-link-minor-mode)
 
 ;; DONE не помогает! Надо еще какое-то шаманство, чтобы заработали ID на org-store-link по-умолчанию
 ;; DONE после этой команды (featurep 'org-id) дает nil

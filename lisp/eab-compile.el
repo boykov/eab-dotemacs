@@ -56,4 +56,6 @@
 
 (defun eab/gr-status ()
   (interactive)
-  (eab/compile (concat "gr status ")))
+  (let ((compilation-buffer-name-function
+	 (lambda (mode) (concat "*" "gr status" "*"))))
+    (eab/compile (concat "gr status "))))

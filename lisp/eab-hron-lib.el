@@ -416,7 +416,7 @@
 	  ", csum "
 	  eab/hron-csum-day))
 	(server-eval-at "server" '(add-to-list 'mode-line-modes '(t " [!] ")))
-	(sauron-fx-aplay "/usr/lib/libreoffice/share/gallery/sounds/falling.wav"))
+	(sauron-fx-mplayer "/usr/share/sounds/ubuntu/stereo/phone-incoming-call.ogg"))
     (progn
       (setq eab/total-csum eab/hron-csum-day)
       (eab/send-mail "All time Совпадает!")

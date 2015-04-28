@@ -20,6 +20,7 @@
     (org-publish-project "html" t)
     (org-publish-project "html-clock" t)
     (eab/send-csum)
+    (eab/check-csum-all)
     (eab/send-csum-all)
     ;; (org-mobile-push)
     (eab/update-agenda)
@@ -410,7 +411,6 @@
      ":" (if (= (length min) 1) (concat "0" min) min))))
 
 (defun eab/send-csum-all ()
-  (eab/check-csum-all)
   (if (not (string-equal
 	    eab/hron-csum-day
 	    (concat "*" (eab/get-all-csum) "*")))
@@ -445,6 +445,7 @@
       (sleep-for 1)
       (server-eval-at "serverN" '(progn
 				   (auto-revert-buffers)
+				   (eab/check-csum-all)
 				   (eab/send-csum-all)
 				   (delete-frame)))
       (kill-emacs))))

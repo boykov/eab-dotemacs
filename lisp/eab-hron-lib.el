@@ -331,6 +331,12 @@
   (kill-buffer (current-buffer))
   (kill-buffer (current-buffer)))
 
+(defun eab/check-csum-all-GREP ()
+  (interactive)
+  (if (eq (shell-command (concat "cd " (concat org-directory "clock/") " && test-csum.sh")) 0)
+      (setq eab/hron-csum-day (concat "*" (eab/get-all-csum) "*"))
+    (setq eab/hron-csum-day (concat "*" "ERROR GREP" "*"))))
+
 (defun eab/check-csum-all ()
   (interactive)
   (dired org-directory)

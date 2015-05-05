@@ -89,8 +89,8 @@
 	org
 	f
 	keyfreq
-	cask
-	pallet
+	cask ;; shut-up
+	pallet ;; shut-up
 	purty-mode
 	flx
 	guide-key
@@ -113,18 +113,18 @@
 	ibuffer-vc
 	highlight
 	graphviz-dot-mode
-	gist
+	gist  ;; tabulated-list
 	gh
 	fuzzy-match
 	feature-mode
-	fakir
-	elnode
+	fakir ;; kv
+	elnode ;; kv
 	el-x
 	diminish
 	;; descbinds-anything
 	db
 	dash
-	creole
+	creole ;; kv
 	clojure-mode
 	browse-kill-ring
 	bm

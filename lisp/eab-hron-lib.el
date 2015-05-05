@@ -445,7 +445,7 @@
       (sleep-for 1)
       (server-eval-at "serverN" '(progn
 				   (auto-revert-buffers)
-				   (eab/check-csum-all)
+				   (eab/check-csum-all-GREP)
 				   (eab/send-csum-all)
 				   (delete-frame)))
       (kill-emacs))))

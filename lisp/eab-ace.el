@@ -1,5 +1,5 @@
 (require 'ace-jump-mode)
-(require 'ace-window)
+;; (require 'ace-window)
 
 (setq ace-jump-mode-gray-background nil) ;; it is faster
 

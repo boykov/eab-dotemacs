@@ -19,32 +19,33 @@
 	 elpa-mirror
 	 el-expectations ;; + no elpa, 2012-10-09
 	 el-get
-	 emacs-w3m ;; + no melpa
+	 ;; emacs-w3m ;; + no melpa
 	 epc
-	 fuzzy
 	 gnuplot-mode
-	 help+
-	 help-fns+
 	 help-macro+ ;; + no melpa
-	 help-mode+
 	 hexrgb
-	 hy-mode
-	 idle-highlight-mode ;; + no melpa
-	 multifiles
-	 org-link-minor-mode ;; + no melpa
-	 popup
-	 pydoc-info
-	 python-mode
-	 request
 	 sudo-save ;; + no elpa
-	 twittering-mode
 	 wikipedia-mode ;; + no elpa
 	 pymacs		;; is needs for eepitch python
+ 	 org-link-minor-mode ;; + no melpa
 	
 	 ))
 
 (setq eab/package-sources-extra
       '(
+	ace-window
+	ace-jump-buffer
+	ace-link
+	twittering-mode
+	request
+	python-mode
+	pydoc-info
+	popup
+	idle-highlight-mode ;; + no melpa
+	help+
+	help-fns+
+	help-mode+
+	fuzzy
 	el-mock
 	anchored-transpose
 	bookmark+

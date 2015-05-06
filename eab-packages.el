@@ -8,23 +8,17 @@
 	 undo-tree
 	 yasnippet
 	 cl-lib ;; ok doteab, elpa, empty directory, magit dependency
-	 anchored-transpose
 	 bbdb
-	 bookmark+
-	 buffer-move
-	 crontab-mode
 	 ctable
 	 dash
 	 ;; dictem ;; + no melpa
 	 dired+
 	 dired-details
 	 dired-details+
-	 ebib
 	 eev-current ;; + no melpa
 	 elpa-mirror
 	 el-expectations ;; + no elpa, 2012-10-09
 	 el-get
-	 el-mock
 	 emacs-w3m ;; + no melpa
 	 epc
 	 fuzzy
@@ -51,6 +45,24 @@
 
 (setq eab/package-sources-extra
       '(
+	el-mock
+	anchored-transpose
+	bookmark+
+	buffer-move
+	crontab-mode
+	shut-up
+	parsebib
+	package-build
+	jedi-core
+	ebib
+	helm-helm-commands
+	dockerfile-mode
+	deft
+	ewmctrl
+	anaphora
+	connection
+	ido-vertical-mode
+	link
 	oneonone
 	emacsc
 	deferred ;; depend

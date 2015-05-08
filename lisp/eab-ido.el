@@ -102,7 +102,7 @@
 		    (eab/wg-switch-to-workgroup bufsw)
 		    (eab/wg-switched-msg))
 		(progn
-		  (eab/wg-update bufsw)
+		  ;; (eab/wg-update bufsw)
 		  (switch-to-buffer bufsw))))))))))
 
 (defun ido-set-matches ()

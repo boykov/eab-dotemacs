@@ -6,9 +6,6 @@
 	 ctable
 	 dash
 	 ;; dictem ;; + no melpa
-	 dired+
-	 dired-details
-	 dired-details+
 	 eev-current ;; + no melpa
 	 el-expectations ;; + no elpa, 2012-10-09
 	 el-get
@@ -17,7 +14,7 @@
 	 gnuplot-mode
 	 help-macro+ ;; + no melpa
 	 hexrgb
-	 sudo-save ;; + no elpa
+	 ;; sudo-save ;; + no elpa
 	 wikipedia-mode ;; + no elpa
 	 pymacs		;; is needs for eepitch python
  	 org-link-minor-mode ;; + no melpa
@@ -26,6 +23,9 @@
 
 (setq eab/package-sources-extra
       '(
+	dired+
+	dired-details
+	dired-details+
 	elpa-mirror
 	smex
 	undo-tree

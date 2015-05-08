@@ -1,12 +1,6 @@
 (setq eab/el-get-sources-extra
        '(
 	 package ;; already in doteab
-	 projectile
-	 region-bindings-mode
-	 smartparens
-	 smex
-	 undo-tree
-	 yasnippet
 	 cl-lib ;; ok doteab, elpa, empty directory, magit dependency
 	 bbdb
 	 ctable
@@ -16,7 +10,6 @@
 	 dired-details
 	 dired-details+
 	 eev-current ;; + no melpa
-	 elpa-mirror
 	 el-expectations ;; + no elpa, 2012-10-09
 	 el-get
 	 ;; emacs-w3m ;; + no melpa
@@ -33,6 +26,13 @@
 
 (setq eab/package-sources-extra
       '(
+	elpa-mirror
+	smex
+	undo-tree
+	yasnippet
+	region-bindings-mode
+	smartparens
+	projectile
 	ace-window
 	ace-jump-buffer
 	ace-link

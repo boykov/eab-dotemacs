@@ -15,6 +15,13 @@
 (require 'ansi-color)
 (setq ansi-color-names-vector [zenburn-bg zenburn-red zenburn-green zenburn-yellow zenburn-blue zenburn-magenta zenburn-cyan zenburn-fg])
 
+(defvar eab/recently-saved-files-list '())
+
+(add-hook 'after-save-hook
+	  (lambda ()
+	    (interactive)
+	    (add-to-list 'eab/recently-saved-files-list buffer-file-name)))
+
 ;; see eab-compile.el
 (defun colorize-compilation-buffer ()
   (toggle-read-only)

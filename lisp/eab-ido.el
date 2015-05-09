@@ -105,7 +105,7 @@
 	    ;; 	(progn
 	    ;; 	  (eab/wg-update bufsw)
 	    ;; 	  (switch-to-buffer bufsw))))
-	    (switch-to-buffer bufsw)))))))
+	    (switch-to-buffer (ido-name (car ido-matches)))))))))
 
 (defun ido-set-matches ()
   "Set `ido-matches' to the list of items matching prompt"

@@ -32,7 +32,8 @@
 ;; DONE сделать cache для projectile-project-buffer-names
 ;; см. patch projectile-project-buffer-p
 (defun eab/cxb ()
-  "`ido-switch-buffer' modification with `projectile-project-buffer-names' and `eab/wg-names'"
+  "`ido-switch-buffer' modification with `projectile-project-buffer-names'"
+  ;; and `eab/wg-names'
   (interactive)
   (let ((tmp wg-dissociate-buffer-on-kill-buffer))
     (setq wg-dissociate-buffer-on-kill-buffer nil)
@@ -96,14 +97,15 @@
 	  (helm nil ido-text nil nil nil nil)
 	;;        (ido-buffer-internal ido-default-buffer-method nil nil nil ido-text nil)
 	(if ido-matches
-	    (let ((bufsw (ido-name (car ido-matches))))
-	      (if (remove-if-not (lambda (x) (equal x bufsw)) (eab/wg-names))
-		  (progn
-		    (eab/wg-switch-to-workgroup bufsw)
-		    (eab/wg-switched-msg))
-		(progn
-		  ;; (eab/wg-update bufsw)
-		  (switch-to-buffer bufsw))))))))))
+	    ;; (let ((bufsw (ido-name (car ido-matches))))
+	    ;;   (if (remove-if-not (lambda (x) (equal x bufsw)) (eab/wg-names))
+	    ;; 	  (progn
+	    ;; 	    (eab/wg-switch-to-workgroup bufsw)
+	    ;; 	    (eab/wg-switched-msg))
+	    ;; 	(progn
+	    ;; 	  (eab/wg-update bufsw)
+	    ;; 	  (switch-to-buffer bufsw))))
+	    (switch-to-buffer bufsw)))))))
 
 (defun ido-set-matches ()
   "Set `ido-matches' to the list of items matching prompt"
@@ -111,9 +113,10 @@
     (setq ido-matches
           (ido-set-matches-1
            (reverse
-            (if (eq ido-cur-item 'buffer)
-                (append ido-cur-list (eab/wg-names))
-              ido-cur-list))
+            ;; (if (eq ido-cur-item 'buffer)
+            ;;     (append ido-cur-list (eab/wg-names))
+            ;;   ido-cur-list)
+	    ido-cur-list)
            (not ido-rotate)) ido-rotate nil)))
 
 (defun eab/ido-main ()

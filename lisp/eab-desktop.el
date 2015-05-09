@@ -28,3 +28,10 @@
   (message "Re-initialized!"))
 ;; (desktop-read (concat (eab/desktop-dir) "")) ;; можно управлять историей между сеансами
 ;; (eab/wg-load (concat (eab/desktop-dir) ".emacs_workgroups"))
+
+(defun eab/desktop-ignore-workgroups (desktop-buffer-file-name)
+       "Function to ignore workgroups2 minor modes during restore of buffers"
+       nil)
+
+(add-to-list 'desktop-minor-mode-handlers
+	     '(workgroups-mode . eab/desktop-ignore-workgroups))

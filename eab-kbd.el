@@ -114,16 +114,19 @@
 (define-key eab/temacs-map (kbd "q") 'ergoemacs-open-last-closed)
 (define-key eab/temacs-map (kbd "/") 'ergoemacs-toggle-letter-case)
 
-(define-key eab/temacs-map (kbd "C-h") 'nil)
-(define-key eab/temacs-map (kbd "C-s") 'nil)
-
-(define-key eab/temacs-map (kbd "e") 'expectations-execute)
-(define-key eab/temacs-map (kbd "b") 'nil)
-(define-key eab/temacs-map (kbd "r") 'region-bindings-mode)
-(define-key eab/temacs-map (kbd "w") 'whitespace-mode)
-(define-key eab/temacs-map (kbd "W") 'subword-mode)
-(define-key eab/temacs-map (kbd "C-l") 'recenter-top-bottom)
-(define-key eab/temacs-map (kbd "a") 'append-to-buffer)
+(define-key eab/temacs-map (kbd "h") 'eab/hron-todo)
+(define-key eab/temacs-map (kbd "M-h") 'eab/send-csum-all-remote)
+(define-key eab/temacs-map (kbd "M-d") (ilam (eab/sh-over-bash "~/git/auto/test-dotemacs.sh" "" 't)))
+(define-key eab/temacs-map (kbd "M-p") (ilam (let ((shell-command-switch "-ic")) (eab/shell-command "dpemacs"))))
+(define-key eab/temacs-map (kbd "M-P") (ilam (eab/shell-command "bash -i -c dpemacs_new")))
+(define-key eab/temacs-map (kbd "M-m") (ilam (eab/sh-over-bash "~/git/auto/firefoxmacro.sh" "" 't)))
+(define-key eab/temacs-map (kbd "v") 'eab/org-insert-link-fast)
+(define-key eab/temacs-map (kbd "f") 'eab/see-file)
+;; (define-key eab/temacs-map (kbd "s") 'eab/sudo-save-toggle)
+(define-key eab/temacs-map (kbd ".") eab/one-key-map) ;; temacs.
+(define-key eab/temacs-map (kbd "SPC") 'eab/gr-tag-default-directory)
+(define-key eab/temacs-map (kbd "O") 'esc-toggle-window-selectability)
+(define-key eab/temacs-map (kbd "D") 'toggle-window-dedicated)
 
 (define-key eab/temacs-map (kbd "k") 'org-metadown)
 (define-key eab/temacs-map (kbd "i") 'org-metaup)
@@ -154,36 +157,33 @@
 (define-key eab/temacs-map (kbd "c") 'org-store-link)
 (define-key eab/temacs-map (kbd "z") 'org-archive-set-tag)
 
-(define-key eab/temacs-map (kbd "h") 'eab/hron-todo)
-(define-key eab/temacs-map (kbd "M-h") 'eab/send-csum-all-remote)
-(define-key eab/temacs-map (kbd "M-d") (ilam (eab/sh-over-bash "~/git/auto/test-dotemacs.sh" "" 't)))
-(define-key eab/temacs-map (kbd "M-p") (ilam (let ((shell-command-switch "-ic")) (eab/shell-command "dpemacs"))))
-(define-key eab/temacs-map (kbd "M-P") (ilam (eab/shell-command "bash -i -c dpemacs_new")))
-(define-key eab/temacs-map (kbd "M-m") (ilam (eab/sh-over-bash "~/git/auto/firefoxmacro.sh" "" 't)))
-(define-key eab/temacs-map (kbd "v") 'eab/org-insert-link-fast)
-(define-key eab/temacs-map (kbd "f") 'eab/see-file)
-;; (define-key eab/temacs-map (kbd "s") 'eab/sudo-save-toggle)
-(define-key eab/temacs-map (kbd ".") eab/one-key-map) ;; temacs.
-(define-key eab/temacs-map (kbd "SPC") 'eab/gr-tag-default-directory)
-(define-key eab/temacs-map (kbd "O") 'esc-toggle-window-selectability)
-(define-key eab/temacs-map (kbd "D") 'toggle-window-dedicated)
-
+(define-key eab/temacs-map (kbd "C-h") 'nil)
+(define-key eab/temacs-map (kbd "C-s") 'nil)
 (define-key eab/temacs-map (kbd "b") 'bookmark-set)
-(define-key eab/temacs-map (kbd "m") 'kmacro-keymap)
 (define-key eab/temacs-map (kbd "nn") 'star-to-space2)
-(define-key eab/temacs-map (kbd ",") 'kmacro-end-or-call-macro-repeat) ;; temacs
-(define-key eab/temacs-map (kbd "M-a") 'eval-expression)  ;; temacs
+(define-key eab/temacs-map (kbd "Y") 'auto-complete-mode) ;; temacs
+(define-key eab/temacs-map (kbd "g") 'helm-google-suggest)
 (define-key eab/temacs-map (kbd "y") 'yas-minor-mode)
 (define-key eab/temacs-map (kbd "P") 'smartparens-global-mode)
+(define-key eab/temacs-map (kbd ";") 'isearch-moccur)
+(define-key eab/temacs-map (kbd "e") 'expectations-execute)
+(define-key eab/temacs-map (kbd "r") 'region-bindings-mode)
+
+(define-key eab/temacs-map (kbd "b") 'nil)
+(define-key eab/temacs-map (kbd "w") 'whitespace-mode)
+(define-key eab/temacs-map (kbd "W") 'subword-mode)
+(define-key eab/temacs-map (kbd "C-l") 'recenter-top-bottom)
+(define-key eab/temacs-map (kbd "a") 'append-to-buffer)
+(define-key eab/temacs-map (kbd "m") 'kmacro-keymap)
+(define-key eab/temacs-map (kbd ",") 'kmacro-end-or-call-macro-repeat) ;; temacs
+(define-key eab/temacs-map (kbd "x") 'kmacro-keymap)
+(define-key eab/temacs-map (kbd "M-a") 'eval-expression)  ;; temacs
 (define-key eab/temacs-map (kbd "u") 'rename-uniquely)
 (define-key eab/temacs-map (kbd "S") 'toggle-truncate-lines) ;; temacs
-(define-key eab/temacs-map (kbd "Y") 'auto-complete-mode) ;; temacs
-(define-key eab/temacs-map (kbd ";") 'isearch-moccur)
 (define-key eab/temacs-map (kbd "d") 'toggle-debug-on-error)
 (define-key eab/temacs-map (kbd "M-f") 'ispell-change-dictionary)
 (define-key eab/temacs-map (kbd "F") 'flyspell-mode)
-(define-key eab/temacs-map (kbd "g") 'helm-google-suggest)
-(define-key eab/temacs-map (kbd "x") 'kmacro-keymap)
+
 
 ;; (global-set-key (kbd "C-y") 'helm-complex-command-history)
 ;; (global-set-key (kbd "C-y") eab/temacs-map)
@@ -276,6 +276,8 @@
 (global-set-key (kbd "M-w") 'ergoemacs-shrink-whitespaces)
 (global-set-key (kbd "M-~") 'ergoemacs-switch-to-previous-frame)
 (global-set-key (kbd "C-/") 'ergoemacs-toggle-letter-case)
+(global-set-key (kbd "M-*") 'ergoemacs-select-text-in-quote)
+(global-set-key (kbd "M-8") 'ergoemacs-extend-selection)
 
 (global-set-key (kbd "<f12>") 'eab/make-list-paths)
 (global-set-key (kbd "<f6>") 'eab/revert-buffer)
@@ -306,6 +308,7 @@
 (global-set-key (kbd "C-s-j") 'eab/insert-greek)  ;; temacs
 (global-set-key (kbd "C-x b") 'eab/switch-to-buffer)
 (global-set-key (kbd "C-x g") 'eab/grep)
+(global-set-key (kbd "C-x C-g") (kbd "C-u C-x g"))
 (global-set-key (kbd "C-x T") 'eab/google-translate)
 (global-set-key (kbd "M-.") 'eab/etags-find-or-pop) ;; вместе с тэгами используются eab/find-function-at-point или jedi
 (global-set-key (kbd "M-A") 'eab/call-shell-command)
@@ -331,14 +334,44 @@
 (global-set-key (kbd "<kp-enter>") 'winner-undo)
 (global-set-key (kbd "<kp-add>") (ilam (gnus-group-read-group t t "nnimap+Dovecot:inbox")))
 (global-set-key (kbd "<kp-begin>") 'twit)
-(global-set-key (kbd "<kp-delete>") (ilam (kill-buffer-and-window)))
 ;; (global-set-key (kbd "<kp-home>") (ilam (switch-to-buffer "&bitlbee")))
 ;; DONE по имени буфера: нарушение SPOT!
 (global-set-key (kbd "<M-kp-equal>") (ilam (shell-command "suspend_until.sh 4:00 &")))
+(global-set-key (kbd "<kp-delete>") (ilam (kill-buffer-and-window)))
+
+(global-set-key (kbd "M-z") (ilam (rcmd 'undo)))
+(global-set-key (kbd "M-q") (ilam (kill-buffer-and-window)))
+(global-set-key (kbd "C-b") (ilam (rcmd 'switch-to-buffer)))
+(global-set-key (kbd "M-a") (ilam (rcmd 'execute-extended-command)))
+(global-set-key (kbd "C-t") (ilam (rcmd 'transpose-sexps)))
+(global-set-key (kbd "M-m") (ilam (rcmd 'forward-sexp)))
+(global-set-key (kbd "M-n") (ilam (rcmd 'backward-sexp)))
+(global-set-key (kbd "M-?") (ilam (auto-complete)))
+(global-set-key (kbd "C-S-k") (ilam (set-input-method nil)))
+(global-set-key (kbd "s-k") (ilam (if (equal current-input-method "TeX") (set-input-method "russian-computer") (set-input-method "TeX"))))  ;; temacs
+(global-set-key (kbd "C-s") (ilam (save-some-buffers 't)))
+(global-set-key (kbd "C-:") 'isearch-moccur) ;; temacs
+(global-set-key (kbd "C-c i") 'yas-expand)
+(global-set-key (kbd "C-c t") 'dictionary-search)
+(global-set-key (kbd "C-f") 'magit-status)
+(global-set-key (kbd "C-p") 'er/expand-region)
+(global-set-key (kbd "C-s-l") 'helm-locate)
+;; (global-set-key (kbd "C-x C-k C-s") 'pm-save) ;; use pm-define!
+(global-set-key (kbd "C-x C-k d") 'pm-define)
+(global-set-key (kbd "C-x C-k e") 'pm-switch-buf)
+(global-set-key (kbd "C-x G") 'moccur-grep)
+(global-set-key (kbd "C-x t") 'dictionary-search)
+(global-set-key (kbd "M-V") 'helm-show-kill-ring)
+(global-set-key (kbd "M-Z") 'undo-tree-redo)
+(global-set-key (kbd "M-d") 'ace-jump-mode)
+(global-set-key (kbd "s-e") 'expectations-execute)
+(global-set-key (kbd "s-Y") 'auto-complete-mode)
+(global-set-key (kbd "s-g") 'helm-google-suggest)
+(global-set-key (kbd "s-/") 'ac-start)  ;; temacs
+(global-set-key (kbd "s-y") 'yas-minor-mode) 
 
 (global-set-key (kbd "C-i") 'indent-for-tab-command) ;; for TAB
 (global-set-key (kbd "C-m") 'newline) ;; for RET
-(global-set-key (kbd "C-:") 'isearch-moccur) ;; temacs
 (global-set-key (kbd "C-@") 'set-mark-command)
 (global-set-key (kbd "C-M-:") 'isearch-backward-regexp)
 (global-set-key (kbd "C-M-;") 'isearch-forward-regexp)
@@ -347,38 +380,22 @@
 (global-set-key (kbd "C-S-s") 'write-file)  ;; temacs
 (global-set-key (kbd "C-SPC") 'set-mark-command)
 (global-set-key (kbd "S-SPC") 'nil)
-(global-set-key (kbd "C-c i") 'yas-expand)
 (global-set-key (kbd "C-c M-f") 'find-file-at-point)
-
-(global-set-key (kbd "C-c t") 'dictionary-search)
-(global-set-key (kbd "C-f") 'magit-status)
 (global-set-key (kbd "C-h C-c") 'describe-command)
 (global-set-key (kbd "C-h c") 'describe-key-briefly)
 (global-set-key (kbd "C-k") 'toggle-input-method)
-(global-set-key (kbd "C-S-k") (ilam (set-input-method nil)))
-(global-set-key (kbd "s-k") (ilam (if (equal current-input-method "TeX") (set-input-method "russian-computer") (set-input-method "TeX"))))  ;; temacs
 (global-set-key (kbd "C-o") 'find-file)
-(global-set-key (kbd "C-p") 'er/expand-region)
-(global-set-key (kbd "C-s") (ilam (save-some-buffers 't)))
 (global-set-key (kbd "C-s-i") 'imenu)  ;; temacs
 (global-set-key (kbd "C-s-k") (lambda (ch) (interactive "c") (insert ch)))
-(global-set-key (kbd "C-s-l") 'helm-locate)
-(global-set-key (kbd "C-v") 'vc-diff)
 (global-set-key (kbd "C-x C-d") 'dired-jump)
+(global-set-key (kbd "C-v") 'vc-diff)
 (global-set-key (kbd "C-x C-e") 'eval-defun)
-(global-set-key (kbd "C-x C-g") (kbd "C-u C-x g"))
-;; (global-set-key (kbd "C-x C-k C-s") 'pm-save) ;; use pm-define!
-(global-set-key (kbd "C-x C-k d") 'pm-define)
-(global-set-key (kbd "C-x C-k e") 'pm-switch-buf)
 (global-set-key (kbd "C-x C-k k") 'kill-region)
-(global-set-key (kbd "C-x G") 'moccur-grep)
 (global-set-key (kbd "C-x M-f") 'find-file-at-point)
 (global-set-key (kbd "C-x c") 'customize-variable)
-
 (global-set-key (kbd "C-x e") 'eval-last-sexp)
 (global-set-key (kbd "C-x j") 'comment-region)
 (global-set-key (kbd "C-x o") 'other-window)
-(global-set-key (kbd "C-x t") 'dictionary-search)
 (global-set-key (kbd "C-z") 'repeat)
 (global-set-key (kbd "M-!") 'delete-window)
 (global-set-key (kbd "s-0") 'delete-window)
@@ -386,15 +403,12 @@
 (global-set-key (kbd "M-%") 'query-replace-regexp)
 (global-set-key (kbd "M-&") 'count-matches)
 (global-set-key (kbd "M-'") 'comment-dwim)
-(global-set-key (kbd "M-*") 'select-text-in-quote)
 (global-set-key (kbd "M-<") 'kmacro-start-macro)
 (global-set-key (kbd "M-,") 'kmacro-end-or-call-macro)
 (global-set-key (kbd "M-/") 'dabbrev-expand)
-(global-set-key (kbd "M-?") (ilam (auto-complete)))
 (global-set-key (kbd "M-1") 'delete-other-windows)
 (global-set-key (kbd "M-2") 'split-window-vertically)
 (global-set-key (kbd "M-5") 'query-replace)
-(global-set-key (kbd "M-8") 'extend-selection)
 (global-set-key (kbd "M-:") 'isearch-backward)
 (global-set-key (kbd "M-;") 'isearch-forward)
 (global-set-key (kbd "M-@") 'split-window-horizontally)
@@ -412,12 +426,9 @@
 (global-set-key (kbd "M-S-SPC") 'mark-paragraph)
 (global-set-key (kbd "M-SPC") 'set-mark-command)
 (global-set-key (kbd "M-U") 'backward-paragraph)
-(global-set-key (kbd "M-V") 'helm-show-kill-ring)
 (global-set-key (kbd "M-X") 'delete-region)
-(global-set-key (kbd "M-Z") 'undo-tree-redo)
 (global-set-key (kbd "M-b") 'kill-sexp)
 (global-set-key (kbd "M-c") 'kill-ring-save)
-(global-set-key (kbd "M-d") 'ace-jump-mode)
 (global-set-key (kbd "M-e") 'backward-kill-word)
 (global-set-key (kbd "M-f") 'delete-char)
 (global-set-key (kbd "M-F") 'delete-backward-char)
@@ -428,28 +439,17 @@
 (global-set-key (kbd "C-M-j") 'delete-backward-char)
 (global-set-key (kbd "M-k") 'next-line)
 (global-set-key (kbd "M-l") 'forward-char)
-(global-set-key (kbd "C-b") (ilam (rcmd 'switch-to-buffer)))
-(global-set-key (kbd "M-a") (ilam (rcmd 'execute-extended-command)))
-(global-set-key (kbd "C-t") (ilam (rcmd 'transpose-sexps)))
-(global-set-key (kbd "M-m") (ilam (rcmd 'forward-sexp)))
-(global-set-key (kbd "M-n") (ilam (rcmd 'backward-sexp)))
 (global-set-key (kbd "M-o") 'forward-word)
 (global-set-key (kbd "M-p") 'move-end-of-line)
-(global-set-key (kbd "M-q") (ilam (kill-buffer-and-window)))
 (global-set-key (kbd "M-r") 'kill-word)
 (global-set-key (kbd "M-u") 'backward-word)
 (global-set-key (kbd "M-v") 'yank)
 (global-set-key (kbd "M-x") 'kill-region)
-(global-set-key (kbd "M-z") (ilam (rcmd 'undo)))
 (global-set-key (kbd "s-,") 'kmacro-end-or-call-macro-repeat)
 (global-set-key (kbd "s-.") nil)
-(global-set-key (kbd "s-Y") 'auto-complete-mode)
-(global-set-key (kbd "s-a") 'append-to-buffer)
-(global-set-key (kbd "s-e") 'expectations-execute)
-(global-set-key (kbd "s-g") 'helm-google-suggest)
-(global-set-key (kbd "s-/") 'ac-start)  ;; temacs
 (global-set-key (kbd "s-m") 'kmacro-keymap)
-(global-set-key (kbd "s-y") 'yas-minor-mode) 
+(global-set-key (kbd "s-a") 'append-to-buffer)
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;	  _    	      _	_ _    	   _
@@ -485,20 +485,23 @@
 (define-key minibuffer-local-completion-map (kbd "M-v") 'nil)
 (define-key minibuffer-local-completion-map (kbd "M-s") 'nil)
 
+(define-key minibuffer-local-map (kbd "M-:") 'helm-minibuffer-history)
+(define-key minibuffer-local-map (kbd "M-k") 'next-history-element) ;; DONE not usable
+
 (define-key minibuffer-local-map (kbd "C-d") 'eab/ace-ibuffer)
 (define-key minibuffer-local-map (kbd "C-|") 'eab/minibuffer-see-file)  ;; temacs
 (define-key minibuffer-local-map (kbd "s-SPC") 'eab/ido-see-file) ;; temacs
 (define-key minibuffer-local-map (kbd "M-a") 'eab/smex-extended)
 (define-key minibuffer-local-map (kbd "C-w") 'eab/smex-repeat)
+
+(define-key minibuffer-local-map (kbd "M-E") (ilam (delete-minibuffer-contents)))
+
 (define-key minibuffer-local-map (kbd "C-q") 'quoted-insert)
 (define-key minibuffer-local-map (kbd "M-;") 'isearch-backward)
-(define-key minibuffer-local-map (kbd "M-:") 'helm-minibuffer-history)
-(define-key minibuffer-local-map (kbd "M-k") 'next-history-element) ;; DONE not usable
 ;; TODO надо C-y, теперь уже C-l, везде сделать переменной
 (define-key minibuffer-local-map (kbd "C-l M-i") 'previous-line)
 (define-key minibuffer-local-map (kbd "C-l M-k") 'next-line)
 (define-key minibuffer-local-map (kbd "M-i") 'previous-history-element)
-(define-key minibuffer-local-map (kbd "M-E") (ilam (delete-minibuffer-contents)))
 (define-key minibuffer-local-map (kbd "M-r") 'nil)
 (define-key minibuffer-local-map (kbd "M-p") 'nil)
 (define-key minibuffer-local-map (kbd "M-n") 'nil)

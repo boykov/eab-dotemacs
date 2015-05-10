@@ -3,7 +3,7 @@
 	eab-misc
 	eab-dotemacs
 	cl-lib
-	ergoemacs-keybindings ;; no elpa, eab fix
+	;; ergoemacs-keybindings ;; no elpa, eab fix
 	;; anything-match-plugin ;; need by anything-config
 	;; anything-config
 	ace-jump-mode ;; eab
@@ -14,6 +14,7 @@
 
 (setq eab/package-sources-minimal
       '(
+	ergoemacs-mode
 	key-chord
 	auto-dictionary ;; switcher for flyspell
 	auto-complete ;; depend

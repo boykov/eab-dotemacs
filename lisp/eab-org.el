@@ -7,6 +7,7 @@
 ;; Requirements: 
 ;; Status: not intended to be distributed yet
 
+;; (unload-feature 'org 't)
 (require 'org)
 (require 'org-clock)
 (require 'org-checklist)

@@ -7,7 +7,7 @@
 ;; Requirements: 
 ;; Status: not intended to be distributed yet
 
-(require 'org)
+;; (require 'org)
 (require 'kmacro)
 
 (defvar eab/temacs-map (make-sparse-keymap)

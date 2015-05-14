@@ -8,7 +8,7 @@
 ;; Status: not intended to be distributed yet
 
 (require 'log-edit)
-(require 'ergoemacs-functions)
+(require 'ergoemacs-mode)
 
 (require 'undo-tree)
 (global-undo-tree-mode)

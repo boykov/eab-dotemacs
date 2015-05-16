@@ -39,6 +39,12 @@
 	(eab/renew-agenda)
 	)))))
 
+(defun eab/org-sort-time-func ()
+  (let ((end (save-excursion (outline-next-heading) (point))))
+    (if (re-search-forward org-ts-regexp-both end t)
+	(org-time-string-to-seconds (match-string 0))
+      (org-float-time now))))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;  _
 ;; | |__  _ __ ___  _ __

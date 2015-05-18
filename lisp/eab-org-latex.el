@@ -21,7 +21,7 @@
 					     ("begin" "$1" "$" "$$" "\\(" "\\[")))
 
 ;; using in org-preview-latex-fragment
-;; See eab-header in ~/texmf/tex/latex/eab-styles/eab-header.sty
+;; see eab-path.el
 (setq org-format-latex-header "\\documentclass{article}
   [PACKAGES]
   [DEFAULT-PACKAGES]

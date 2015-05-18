@@ -52,7 +52,7 @@
   (progn
     (eab/sh-over-bash
      "xdg-open"
-     (concat "~"
+     (concat eab/homedir
 	     (substring (minibuffer-contents)
 			1 (length (minibuffer-contents)))) 't)
     (abort-recursive-edit)))
@@ -102,6 +102,8 @@
     (eab/ido-firefox)
     ))
 
+(eab/bind-path eab/translate-path)
+
 ;; TODO баг: зацикливание (много bash процессов) trying with detected language
 ;; пример со словом hunchentoot
 ;; убить можно pkill -f bash
@@ -111,7 +113,7 @@
 	(split-string
 	 (ansi-color-filter-apply
 	  (shell-command-to-string
-	   (concat "export TERM=eterm-color && PATH=$PATH:~/bin/ && ~/bin/translate " phrase)))
+	   (concat "export TERM=eterm-color && " eab/translate-path " " phrase)))
 	 "\n"))
   (if (not not-abbrevp)
       (define-abbrev eab-abbrev-table phrase (car eab/tmp-str)))

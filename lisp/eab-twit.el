@@ -7,14 +7,14 @@
       (progn
 	(if (not eab/twittering-oauth-access-token-alist)
 	    (setq eab/twittering-oauth-access-token-alist
-		  (cdar (read (twittering-read-from-encrypted-file "~/.twittering-mode.gpg")))))
+		  (cdar (read (twittering-read-from-encrypted-file eab/twittering-mode)))))
 	(setq twittering-edit-buffer "*artscan: twittering-edit*")
 	(setq twittering-oauth-access-token-alist eab/twittering-oauth-access-token-alist)
 	(setq twittering-private-info-file eab/twittering-mode))
     (progn
       (if (not eab/twittering-oauth-access-token-alistN)
 	  (setq eab/twittering-oauth-access-token-alistN
-		(cdar (read (twittering-read-from-encrypted-file "~/.twittering-modeN.gpg")))))
+		(cdar (read (twittering-read-from-encrypted-file eab/twittering-modeN)))))
       (setq twittering-edit-buffer "*ea2b: twittering-edit*")
       (setq twittering-oauth-access-token-alist eab/twittering-oauth-access-token-alistN)
       (setq twittering-private-info-file eab/twittering-modeN))))

@@ -1,4 +1,4 @@
-;; DONE Директория не должна быть та же! Хотя бы ~/pub/org
+;; DONE Директория не должна быть та же!
 (setq org-publish-project-alist
       `(("html-base"
 	 :base-directory ,org-directory
@@ -81,10 +81,10 @@
 	 :author-info nil
 	 :creator-info nil)
 	;; ("html-code"
-	;;  :base-directory "~/git/org/pubcode/"
-	;;  :publishing-directory "~/pub/org/pubcode/"
-	;;  :base-url "file:///home/eab/pub/org/pubcode/"
-	;;  :working-directory "~/pub/org/pubcode/"
+	;;  :base-directory ,(concat org-directory "pubcode/")
+	;;  :publishing-directory ,(concat eab/org-publish-directory "pubcode/")"
+	;;  :base-url ,(concat eab/org-publish-directory-file "pubcode/")
+	;;  :working-directory ,(concat eab/org-publish-directory "pubcode/")
 	;;  :online-suffix ".html"
 	;;  :working-suffix ".org"
 	;;  :section_numbers nil

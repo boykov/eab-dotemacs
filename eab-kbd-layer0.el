@@ -158,6 +158,7 @@
 (global-set-key (kbd "s-m") 'kmacro-keymap)
 (global-set-key (kbd "s-a") 'append-to-buffer)
 
+(global-set-key (kbd "C-a") nil)
 (global-set-key (kbd "C-a z") 'winner-undo)
 (global-set-key (kbd "C-a C-z") 'winner-undo)
 (global-set-key (kbd "C-a Z") 'winner-redo)

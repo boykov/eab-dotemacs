@@ -113,15 +113,9 @@
 
 (define-key eab/temacs-map (kbd "h") 'eab/hron-todo)
 (define-key eab/temacs-map (kbd "M-h") 'eab/send-csum-all-remote)
-(define-key eab/temacs-map (kbd "M-d") (ilam (eab/sh-over-bash "~/git/auto/test-dotemacs.sh" "" 't)))
-(define-key eab/temacs-map (kbd "M-p") (ilam (let ((shell-command-switch "-ic")) (eab/shell-command "dpemacs"))))
-(define-key eab/temacs-map (kbd "M-P") (ilam (eab/shell-command "bash -i -c dpemacs_new")))
-(define-key eab/temacs-map (kbd "M-m") (ilam (eab/sh-over-bash "~/git/auto/firefoxmacro.sh" "" 't)))
 (define-key eab/temacs-map (kbd "v") 'eab/org-insert-link-fast)
-(define-key eab/temacs-map (kbd "f") 'eab/see-file)
 ;; (define-key eab/temacs-map (kbd "s") 'eab/sudo-save-toggle)
 (define-key eab/temacs-map (kbd ".") eab/one-key-map) ;; temacs.
-(define-key eab/temacs-map (kbd "SPC") 'eab/gr-tag-default-directory)
 (define-key eab/temacs-map (kbd "O") 'esc-toggle-window-selectability)
 (define-key eab/temacs-map (kbd "D") 'toggle-window-dedicated)
 
@@ -137,6 +131,14 @@
 (define-key eab/temacs-map (kbd ";") 'isearch-moccur)
 (define-key eab/temacs-map (kbd "e") 'expectations-execute)
 (define-key eab/temacs-map (kbd "r") 'region-bindings-mode)
+
+;; shell and shell-utils
+(define-key eab/temacs-map (kbd "f") 'eab/see-file)
+(define-key eab/temacs-map (kbd "SPC") 'eab/gr-tag-default-directory)
+(define-key eab/temacs-map (kbd "M-d") (ilam (eab/sh-over-bash "~/git/auto/test-dotemacs.sh" "" 't)))
+(define-key eab/temacs-map (kbd "M-p") (ilam (let ((shell-command-switch "-ic")) (eab/shell-command "dpemacs"))))
+(define-key eab/temacs-map (kbd "M-P") (ilam (eab/shell-command "bash -i -c dpemacs_new")))
+(define-key eab/temacs-map (kbd "M-m") (ilam (eab/sh-over-bash "~/git/auto/firefoxmacro.sh" "" 't)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; TODO таки приходим постепенно к модальным режимам, как в vim
@@ -162,26 +164,11 @@
 (define-key eab/wg-map (kbd "d") (ilam (eab/wg-switch-to-workgroup ":dot:")))
 (define-key eab/wg-map (kbd "l") (ilam (eab/wg-switch-to-workgroup ":lat:")))
 (define-key eab/wg-map (kbd "a") (ilam (eab/wg-switch-to-workgroup ":ag:")))
-(define-key eab/wg-map (kbd "k") (ilam (eab/wg-switch-to-workgroup ":knb:")))
 (define-key eab/wg-map (kbd "4") (ilam (eab/wg-switch-to-workgroup ":aaaa:")))
 (define-key eab/wg-map (kbd "5") (ilam (eab/wg-switch-to-workgroup ":ahmed:")))
 (define-key eab/wg-map (kbd "i") (ilam (eab/wg-switch-to-workgroup "bib")))
-(define-key eab/wg-map (kbd "w") 'twit)
-(define-key eab/wg-map (kbd "p") (ilam (eab/switch-wmctrl-window "Ying")))
 (define-key eab/wg-map (kbd "p") 'wg-switch-to-previous-workgroup)
-;; (define-key eab/wg-map (kbd "e") (ilam (eab/twit-search "emacs")))
-(define-key eab/wg-map (kbd "[") (ilam (eab/twit-search "хазин")))
-(define-key eab/wg-map (kbd "]") (ilam (eab/twit-search "фурсов")))
-
 (define-key eab/wg-map (kbd "s") 'wg-switch-to-workgroup) ;; +
-;; (define-key eab/wg-map (kbd "s") 'bmkp-cycle) ;; TODO [#A] сделать обертку, выбирающую navlist в соответствии с группой
-;; (define-key eab/wg-map (kbd "t") (ilam (bmkp-choose-navlist-of-type "any")))
-;; DONE по имени буфера: нарушение SPOT!
-(define-key eab/wg-map (kbd "h") (ilam (switch-to-buffer eab/agenda-H-command)))
-(define-key eab/wg-map (kbd "1") (ilam (switch-to-buffer eab/agenda-a-command)))
-(define-key eab/wg-map (kbd "W") (ilam (switch-to-buffer eab/agenda-W-command)))
-(define-key eab/wg-map (kbd "M") (ilam (switch-to-buffer eab/agenda-M-command)))
-(define-key eab/wg-map (kbd "C-s") (ilam (switch-to-buffer "*Sauron*")))
 (define-key eab/wg-map (kbd "x") 'wg-kill-ring-save-working-config) ;; wg-kill-ring-save-working-wconfig
 (define-key eab/wg-map (kbd "v") 'wg-yank-config) ;; wg-yank-wconfig
 (define-key eab/wg-map (kbd "r") 'eab/wg-revert-workgroup)
@@ -190,9 +177,6 @@
 (define-key eab/wg-map (kbd "U") 'wg-save-session) ;; wg-update-workgroup)
 (define-key eab/wg-map (kbd "S") 'eab/eab-wg-save)
 (define-key eab/wg-map (kbd "L") 'eab/eab-wg-load)
-(define-key eab/wg-map (kbd "z") 'winner-undo)
-(define-key eab/wg-map (kbd "C-z") 'winner-undo)
-(define-key eab/wg-map (kbd "Z") 'winner-redo)
 ;; TODO wg-make-workgroups-mode-map
 (define-key eab/wg-map (kbd "z") 'wg-undo-wconfig-change)
 (define-key eab/wg-map (kbd "C-z") 'wg-undo-wconfig-change)
@@ -200,6 +184,20 @@
 (define-key eab/wg-map (kbd "n") 'wg-create-workgroup) ;; +
 (define-key eab/wg-map (kbd "c") (ilam (eab/wg-kill-tmp) (wg-clone-workgroup (wg-current-workgroup) ":tmp:"))) ;; +
 (define-key eab/wg-map (kbd "SPC") 'eab/wg-revert-and-update)
+
+(define-key eab/wg-map (kbd "w") 'twit)
+(define-key eab/wg-map (kbd "p") (ilam (eab/switch-wmctrl-window "Ying")))
+;; (define-key eab/wg-map (kbd "e") (ilam (eab/twit-search "emacs")))
+(define-key eab/wg-map (kbd "[") (ilam (eab/twit-search "хазин")))
+(define-key eab/wg-map (kbd "]") (ilam (eab/twit-search "фурсов")))
+;; (define-key eab/wg-map (kbd "s") 'bmkp-cycle) ;; TODO [#A] сделать обертку, выбирающую navlist в соответствии с группой
+;; (define-key eab/wg-map (kbd "t") (ilam (bmkp-choose-navlist-of-type "any")))
+;; DONE по имени буфера: нарушение SPOT!
+(define-key eab/wg-map (kbd "h") (ilam (switch-to-buffer eab/agenda-H-command)))
+(define-key eab/wg-map (kbd "1") (ilam (switch-to-buffer eab/agenda-a-command)))
+(define-key eab/wg-map (kbd "W") (ilam (switch-to-buffer eab/agenda-W-command)))
+(define-key eab/wg-map (kbd "M") (ilam (switch-to-buffer eab/agenda-M-command)))
+(define-key eab/wg-map (kbd "C-s") (ilam (switch-to-buffer "*Sauron*")))
 
 (global-set-key (kbd "C-a") eab/wg-map)
 
@@ -212,6 +210,8 @@
 ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Global
+
+(global-set-key (kbd "<kp-insert>") 'sauron-pop-to-buffer)
 
 ;; (global-set-key (kbd "<f5>") 'twit) ;; conflicts with (require 'eab-minimal) and eab-depend.el
 ;; (global-set-key (kbd "<f7>") (ilam (switch-to-buffer "&bitlbee")))
@@ -245,13 +245,11 @@
 (global-set-key (kbd "C-c o") 'eab/open-heading-browser)
 (global-set-key (kbd "C-c O") 'eab/open-corresponding-html)
 (global-set-key (kbd "C-c s") 'eab/org-agenda-search)
-(global-set-key (kbd "C-c T") 'eab/google-translate)
 (global-set-key (kbd "C-c u") 'eab/unbound-var)
 (global-set-key (kbd "C-c U") 'eab/unbound-fun)
 (global-set-key (kbd "C-c v") 'eab/twit-visit)
 (global-set-key (kbd "C-c w") 'eab/twit-search)
 (global-set-key (kbd "C-c e") 'eab/edit-list-at-point)
-(global-set-key (kbd "C-S-f") 'eab/gr-status)
 (global-set-key (kbd "C-h C-f") 'eab/find-function-at-point)
 (global-set-key (kbd "C-h C-k") 'eab/describe-key-find)
 (global-set-key (kbd "C-h C-v") 'eab/find-variable-at-point)
@@ -259,18 +257,23 @@
 (global-set-key (kbd "C-x b") 'eab/switch-to-buffer)
 (global-set-key (kbd "C-x g") 'eab/grep)
 (global-set-key (kbd "C-x C-g") (kbd "C-u C-x g"))
-(global-set-key (kbd "C-x T") 'eab/google-translate)
 (global-set-key (kbd "M-.") 'eab/etags-find-or-pop) ;; вместе с тэгами используются eab/find-function-at-point или jedi
 (global-set-key (kbd "M-A") 'eab/call-shell-command)
-(global-set-key (kbd "M-C-b") 'eab/mcb)
 (global-set-key (kbd "s-v") 'eab/org-insert-link-fast)
-(global-set-key (kbd "s-f") 'eab/see-file)
 (global-set-key (kbd "s-h") 'eab/hron-todo)
 
+;; shell and shell-utils
+(global-set-key (kbd "C-c T") 'eab/google-translate)
+(global-set-key (kbd "C-x T") 'eab/google-translate)
+(global-set-key (kbd "M-C-b") 'eab/mcb)
+(global-set-key (kbd "s-f") 'eab/see-file)
+(global-set-key (kbd "C-S-f") 'eab/gr-status)
+
 (global-set-key (kbd "s-z") 'org-archive-set-tag)
+(global-set-key (kbd "s-y") 'yas-minor-mode) 
+(global-set-key (kbd "C-c i") 'yas-expand)
 
 (global-set-key (kbd "<f8>") 'eepitch-this-line)
-(global-set-key (kbd "<kp-insert>") 'sauron-pop-to-buffer)
 (global-set-key (kbd "<kp-enter>") 'winner-undo)
 (global-set-key (kbd "<kp-add>") (ilam (gnus-group-read-group t t "nnimap+Dovecot:inbox")))
 (global-set-key (kbd "<kp-begin>") 'twit)
@@ -290,7 +293,6 @@
 (global-set-key (kbd "s-k") (ilam (if (equal current-input-method "TeX") (set-input-method "russian-computer") (set-input-method "TeX"))))  ;; temacs
 (global-set-key (kbd "C-s") (ilam (save-some-buffers 't)))
 (global-set-key (kbd "C-:") 'isearch-moccur) ;; temacs
-(global-set-key (kbd "C-c i") 'yas-expand)
 (global-set-key (kbd "C-c t") 'dictionary-search)
 (global-set-key (kbd "C-f") 'magit-status)
 (global-set-key (kbd "C-p") 'er/expand-region)
@@ -307,7 +309,6 @@
 (global-set-key (kbd "s-Y") 'auto-complete-mode)
 (global-set-key (kbd "s-g") 'helm-google-suggest)
 (global-set-key (kbd "s-/") 'ac-start)  ;; temacs
-(global-set-key (kbd "s-y") 'yas-minor-mode) 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;	  _    	      _	_ _    	   _

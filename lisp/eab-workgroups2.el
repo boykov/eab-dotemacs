@@ -1,6 +1,6 @@
 ;;; eab-workgroups2.el --- 
 
-;; Copyright (C) 2010, 2011, 2012, 2013, 2014, 2015 Evgeny Boykov
+;; Copyright (C) 2010-2015 Evgeny Boykov
 ;;
 ;; Author: artscan@list.ru
 ;; Keywords: 
@@ -135,3 +135,5 @@
 
 (defun eab/wg-current-workgroup ()
   (wg-workgroup-name (wg-current-workgroup)))
+
+(provide 'eab-workgroups2)

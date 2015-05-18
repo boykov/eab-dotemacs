@@ -1,3 +1,6 @@
+(eab/bind-path eab/print-dir)
+(eab/bind-path eab/tmp-ps)
+
 (setq ps-multibyte-buffer 'bdf-font-except-latin) ; set bdf fonts for russian lang
 
 (defun print-region-to-pdf (from to)

@@ -1,7 +1,7 @@
-(if (fboundp 'eab/postload-minimal)
-    (eab/postload-minimal))
 
 (require 'power-macros)
+(eab/bind-path pm-macro-files)
+(eab/bind-path power-macros-file)
 
 (if (string= (file-name-nondirectory power-macros-file) "eab-pmacros.el") 
     (load power-macros-file))

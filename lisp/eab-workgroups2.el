@@ -28,6 +28,9 @@
 ;; (ad-deactivate 'wg-switch-to-workgroup)
 
 
+(eab/bind-path eab/workgroups-save)
+(eab/bind-path wg-session-file)
+
 (if (not (boundp 'eab/workgroups-save))
     (setq eab/workgroups-save wg-session-file))
 
@@ -40,6 +43,8 @@
 (defvar eab/wg-update-hash nil "Directory : workgroup")
 
 (setq eab/wg-update-hash (make-hash-table :test 'equal))
+
+(eab/bind-path eab/wg-update-list)
 
 (if (boundp 'eab/wg-update-list)
     (mapcar
@@ -89,6 +94,8 @@
   (execute-kbd-macro
    (read-kbd-macro
     "M-a wg-save-wconfig RET dflt RET")))
+
+;; (eab/bind-path eab/eab-workgroups)
 
 ;; (defun eab/eab-wg-save ()
 ;;   "Save workgroups to `eab/eab-workgroups' and reset `wg-file'"

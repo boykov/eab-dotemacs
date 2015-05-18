@@ -1,5 +1,10 @@
 (require 'yasnippet)
 
+(setq yas-snippet-dirs '())
+;; cd el-get && git clone https://github.com/AndreaCrotti/yasnippet-snippets
+(add-to-list 'yas-snippet-dirs (eab/bind-path eab/yasnippets-path))
+(add-to-list 'yas-snippet-dirs (eab/bind-path eab/eab-snippets-path))
+
 (setq yas-key-syntaxes '("w_" "w_." "w_.()" "^ "))
 
 (defun yas-org-very-safe-expand ()

@@ -2,6 +2,7 @@
 (require 'abbrev)
 (require 'dictionary)
 (setq dictionary-server "localhost")
+(eab/bind-path abbrev-file-name)
 
 (defun eab/edit-list-1 (word)
   (edit-list (intern word)))

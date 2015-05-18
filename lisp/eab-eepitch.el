@@ -2,6 +2,12 @@
 (require 'eev-browse-url)
 (require 'eev-mini-steps)
 
+(eab/bind-path eab/eeansi-path)
+(eab/bind-path eab/eegchannel-path)
+(eab/bind-path eab/maple-path)
+(eab/bind-path eab/maxima-path)
+(eab/bind-path eab/ipython-path)
+
 ;; badstyle
 
 (defun eab/eepitch-buffer-end ()

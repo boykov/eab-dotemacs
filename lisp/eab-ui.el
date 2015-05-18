@@ -1,6 +1,17 @@
 (require 'howdoi)
 
+(eab/bind-path source-directory)
+(setq find-function-C-source-directory source-directory)
+
+(eab/bind-path achievements-file)
+
 ;; TODO depend on auto-complete, eab/trans-path, howdoi
+(eab/bind-path eab/trans-path)
+
+;; edit timer-idle-list
+(if (eab/ondaemon "server")
+    (progn
+      (run-with-idle-timer 15 't (lambda () (interactive) (save-some-buffers 't)))))
 
 (defadvice kmacro-start-macro (before eab-kmacro-start activate)
   (if auto-complete-mode (call-interactively 'auto-complete-mode)))

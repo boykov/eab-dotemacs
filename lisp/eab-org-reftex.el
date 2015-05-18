@@ -1,3 +1,5 @@
+(eab/bind-path reftex-default-bibliography)
+
 (defun org-mode-reftex-setup ()
   (load-library "reftex")
   (and (buffer-file-name) (file-exists-p (buffer-file-name))

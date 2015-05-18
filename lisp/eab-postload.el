@@ -1,5 +1,4 @@
 
-(if (fboundp 'eab/postload) (eab/postload))
 (electric-indent-mode)
 (electric-pair-mode -1)
 
@@ -9,6 +8,8 @@
 (defun eab/load-personal ()
   (interactive)
   (eab/load-personal-minimal)
+  (require 'keyfreq)
+  (eab/bind-path keyfreq-file)
   (keyfreq-mode 1)
   (keyfreq-autosave-mode 1)
   (setq minibuffer-frame-alist
@@ -18,7 +19,7 @@
 		       (* 100 (frame-char-width 1on1-minibuffer-frame)) 2)) (height . 2)))
 
   ;; (make-frame (append 1on1-minibuffer-frame-alist minibuffer-frame-alist))
-  (load-file (concat dotfiles-dir "eab-secrets.el"))
+  (load-file (concat user-emacs-directory "eab-secrets.el"))
   (eab/check-smtp)
   (gnus)
   ;; (erc :server "localhost")
@@ -33,6 +34,7 @@
       (load-theme 'tsdh-dark)))
 
 ;; check inet connection first
+(eab/bind-path eab/check-inet-path)
 (if (eq (if (boundp 'eab/check-inet-path) (shell-command eab/check-inet-path)) 0)
     (auto-install-update-emacswiki-package-name t))
 (auto-install-compatibility-setup) ;; for install-elisp users

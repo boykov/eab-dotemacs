@@ -20,6 +20,8 @@
 (eval-after-load "replace" '(progn (require 'replace+)))
 
 (require 'bookmark+) ;; конфликтует с pymacs-load ropemacs
+(eab/bind-path bmkp-last-as-first-bookmark-file)
+(eab/bind-path bookmark-default-file)
 
 (require 'dbus)
 
@@ -43,6 +45,8 @@
 (require 'shell-history)
 (require 'shell-command-queue)
 ;; (setq eshell-rc-script nil)
+
+(eab/bind-path eshell-history-file-name)
 
 (setq 
  mark-ring-max 64
@@ -88,6 +92,7 @@
 (setq epg-gpg-program "gpg")
 
 (require 'tramp)
+(eab/bind-path tramp-persistency-file-name)
 (setq tramp-default-method "ssh")
 
 (require 'comint)
@@ -125,6 +130,7 @@
 (require 'bbdb-loaddefs)
 (require 'bbdb)
 (require 'bbdb-anniv)
+(eab/bind-path bbdb-file)
 (bbdb-initialize 'gnus 'message 'sc) ;; 'w3m)
 (add-hook 'gnus-startup-hook 'bbdb-insinuate-gnus)
 (setq bbdb-north-american-phone-numbers-p nil)
@@ -133,12 +139,15 @@
 (setq twittering-use-native-retweet 't)
 (setq twittering-initial-timeline-spec-string ":home")
 (setq twittering-use-master-password t)
+(eab/bind-path eab/twittering-mode)
+(eab/bind-path eab/twittering-modeN)
 (if (eab/ondaemon "server")
     (setq twittering-private-info-file eab/twittering-mode))
 (if (eab/ondaemon "serverN")
     (setq twittering-private-info-file eab/twittering-modeN))
 
 (require 'erc-log)
+(eab/bind-path erc-log-channels-directory)
 (erc-log-enable)
 (setq erc-server-history-list "localhost")
 (setq erc-log-file-coding-system 'utf-8) 
@@ -176,8 +185,6 @@
 
 ;; (require 'far-search) ;; работает ужасно
 ;; (require 'grep-edit) ;; странно себя вел
-
-(require 'keyfreq)
 
 (require 'oneonone)
 
@@ -232,6 +239,10 @@
 (add-to-list 'auto-mode-alist '("cron\\(tab\\)?\\."    . crontab-mode))
 (add-to-list 'auto-mode-alist '("en\\.wikipedia\\.org" . wikipedia-mode))
 (add-to-list 'auto-mode-alist '("stack\\(exchange\\|overflow\\)\\.com\\.[a-z0-9]+\\.txt" . markdown-mode))
+
+(add-to-list 'load-path (eab/bind-path eab/emaxima-path))
+(eab/bind-path ebib-file-search-dirs)
+(eab/bind-path ebib-preload-bib-files)
 
 (autoload 'org-grep "org-grep" nil t)
 (autoload 'rtf-mode "rtf-mode" "RTF" t)

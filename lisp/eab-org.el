@@ -22,6 +22,18 @@
 (require 'tex)
 (require 'tex-site)
 
+(eab/bind-path org-directory)
+(eab/bind-path eab/org-publish-directory)
+(eab/bind-path eab/org-publish-directory-file)
+(eab/bind-path org-link-abbrev-alist)
+(eab/bind-path org-id-locations-file)
+(eab/bind-path org-clock-persist-file)
+(eab/bind-path org-mobile-directory)
+(eab/bind-path bibtex-files)
+
+;; (org-mobile-create-sumo-agenda) - Create a file that contains all custom agenda views.
+
+;; TODO move this functionality to eab/bind-path
 (if (not (boundp 'eab/org-publish-directory-file))
     (setq eab/org-publish-directory-file "ERROR"))
 

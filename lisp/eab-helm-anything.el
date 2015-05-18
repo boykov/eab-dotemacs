@@ -6,6 +6,8 @@
 (require 'helm-config)
 (helm-match-plugin-mode 0)
 
+(eab/bind-path helm-c-adaptative-history-file)
+
 (defun eab/helm-select-action ()
   (interactive)
   (eab/sh-over-bash "xdg-open" (helm-get-selection) 't)
@@ -77,6 +79,8 @@
       anything-c-skip-boring-files
       anything-c-shorten-home-path))))
 
+(eab/bind-path eab/downloads-path)
+
 ;; TODO м.б. делать локальные locate.db для подобных директорий? C-u helm-locate
 (setq
  anything-c-source-ls-download
@@ -115,6 +119,8 @@
 ;; CANCELLED можно сделать через locate для скорости
 ;; возможно, не следует городить отдельную db для этого, а включить ../music в общую
 ;; (anything-other-buffer 'anything-c-source-ls-music "*anything locate*")
+
+(eab/bind-path eab/musicdb-path)
 
 (setq anything-c-source-ls-music
       '((name . "locate music")

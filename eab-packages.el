@@ -6,7 +6,6 @@
 	 ctable
 	 dash
 	 ;; dictem ;; + no melpa
-	 eev-current ;; + no melpa
 	 el-expectations ;; + no elpa, 2012-10-09
 	 el-get
 	 ;; emacs-w3m ;; + no melpa

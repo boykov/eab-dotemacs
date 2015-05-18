@@ -1,6 +1,9 @@
 ;; require smex, helm
 
 (require 'smex)
+
+(eab/bind-path smex-save-file)
+
 (smex-initialize)
 
 (defadvice smex-show-key-advice (around eab-advice-smex activate)

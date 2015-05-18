@@ -7,6 +7,13 @@
 ;; Requirements: ansi-color, moz, autorevert, async-eval
 ;; Status: not intended to be distributed yet
 
+(eab/bind-path custom-file)
+(eab/bind-path auto-save-list-file-prefix)
+(eab/bind-path backup-directory-alist)
+(eab/bind-path auto-save-file-name-transforms)
+(eab/bind-path save-place-file)
+(eab/bind-path url-configuration-directory)
+
 (require 'autorevert)
 (global-auto-revert-mode t)
 

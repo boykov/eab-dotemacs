@@ -5,6 +5,8 @@
 ;; (require 'auto-complete-emacs-lisp)
 (require 'mode-local)
 
+(eab/bind-path ac-comphist-file)
+
 (global-auto-complete-mode t)
 (setq ac-dwim t)
 ;; TODO auto-complete тормозит при малых значениях параметра
@@ -39,6 +41,7 @@
       (list ac-source-dabbrev
 	    ))
 
+(eab/bind-path eab/american-english)
 (setq ac-source-american-english
       '((candidates
 	 . (lambda ()

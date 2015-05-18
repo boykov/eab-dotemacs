@@ -20,6 +20,7 @@
 (setq projectile-require-project-root t)
 
 (require 'auto-install)
+(eab/bind-path auto-install-directory)
 
 (require 'smartparens) ;; fix boundp sp-keymap
 (require 'smartparens-latex)
@@ -27,6 +28,7 @@
 
 (setq sp-ignore-modes-list nil)
 
+(eab/bind-path savehist-file)
 (savehist-mode 1)
 
 (require 'top-mode)
@@ -34,6 +36,8 @@
 (require 'expand-region)
 ;; (require 'mark-more-like-this)
 (require 'multiple-cursors) ;; fix mc/keymap
+(eab/bind-path mc/list-file)
+
 (require 'region-bindings-mode)
 (region-bindings-mode-enable)
 

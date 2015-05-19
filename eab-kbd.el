@@ -186,7 +186,6 @@
 (define-key eab/wg-map (kbd "SPC") 'eab/wg-revert-and-update)
 
 (define-key eab/wg-map (kbd "w") 'twit)
-(define-key eab/wg-map (kbd "p") (ilam (eab/switch-wmctrl-window "Ying")))
 ;; (define-key eab/wg-map (kbd "e") (ilam (eab/twit-search "emacs")))
 (define-key eab/wg-map (kbd "[") (ilam (eab/twit-search "хазин")))
 (define-key eab/wg-map (kbd "]") (ilam (eab/twit-search "фурсов")))

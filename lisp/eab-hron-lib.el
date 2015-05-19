@@ -40,10 +40,13 @@
 	)))))
 
 (defun eab/org-sort-time-func ()
-  (let ((end (save-excursion (outline-next-heading) (point))))
-    (if (re-search-forward org-ts-regexp-both end t)
-	(org-time-string-to-seconds (match-string 0))
-      (org-float-time now))))
+  (ignore-errors
+    (save-excursion
+      (let* ((pend (save-excursion (org-forward-heading-same-level 1) (point)))
+	     (end (if (eq (point) pend) (save-excursion (end-of-buffer) (point)) pend)))
+	(if (re-search-forward org-ts-regexp-both end t)
+	    (org-time-string-to-seconds (match-string 0))
+	  (org-float-time (current-time)))))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;  _

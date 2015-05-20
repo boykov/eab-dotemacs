@@ -48,6 +48,9 @@
 	    (org-time-string-to-seconds (match-string 0))
 	  (org-float-time (current-time)))))))
 
+;; DONE debug: org-table-get-specials() conflicts with :tags
+(defun eab/work-tags () "w1c|w2c|plan|hron")
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;  _
 ;; | |__  _ __ ___  _ __

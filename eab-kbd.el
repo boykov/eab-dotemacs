@@ -465,6 +465,7 @@
 (global-set-key (kbd "<M-kp-equal>") (ilam (shell-command "suspend_until.sh 4:00 &")))
 (global-set-key (kbd "<kp-delete>") (ilam (kill-buffer-and-window)))
 
+;; former rcmd
 (global-set-key (kbd "M-z") 'undo-tree-undo)
 (global-set-key (kbd "C-b") 'eab/cxb)
 (global-set-key (kbd "M-a") 'eab/smex-limited-commands)

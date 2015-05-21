@@ -96,7 +96,7 @@
 	epl
 	s
 	python-info
-	achievements-mode
+	achievements
 	org-grep
 	org
 	f

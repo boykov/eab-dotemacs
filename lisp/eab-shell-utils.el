@@ -121,10 +121,11 @@
 
 (defun eab/shell-translate-remote (phrase)
   (interactive)
-  (eval `(async-eval
-	     (lambda (result)
-	       (message "async result: <%s>" result)
-	       (define-abbrev eab-abbrev-table ,phrase result))
-	   (progn
-	     (require 'server)
-	     (server-eval-at "serverN" '(eab/shell-translate ,phrase 't))))))
+  (funcall `(lambda ()
+	      (async-eval
+		  (lambda (result)
+		    (message "async result: <%s>" result)
+		    (define-abbrev eab-abbrev-table ,phrase result))
+		(progn
+		  (require 'server)
+		  (server-eval-at "serverN" '(eab/shell-translate ,phrase 't)))))))

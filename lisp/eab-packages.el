@@ -24,12 +24,12 @@
 
 (defun eab/print-el-get-installed ()
   (insert "(setq eab/el-get-sources \n'")
-  (eval '(eab/print-0 (eab/el-get-installed)))
+  (funcall '(lambda () (eab/print-0 (eab/el-get-installed))))
   (eab/indent-list-packages))
 
 (defun eab/print-package-installed ()
   (insert "(setq eab/package-sources \n'")
-  (eval '(eab/print-0 (eab/package-installed)))
+  (funcall '(lambda () (eab/print-0 (eab/package-installed))))
   (eab/indent-list-packages))
 
 (defun eab/indent-list-packages ()

@@ -444,23 +444,25 @@
 				  (setq mode-line-modes (remove '(t " [!] ") mode-line-modes))))
       (sauron-add-event 'eab 3 "All time Совпадает!"))))
 
-(defun eab/send-csum-all-remote ()
-  (interactive)
+(defun eab/send-csum-all-remote (&optional arg)
+  (interactive "P")
   (let ((shell-command-switch "-ic")) (eab/shell-command "nemacs"))
   (sleep-for 1)
   (eab/shell-command "wmctrl -r \"emacsserverN\" -b add,below") ;; TODO влияет и на обычный nemacs?
   (eab/shell-command "wmctrl -a \"emacs@\"")
-  (async-eval
-      (lambda (result) (message "async result: <%s>" result))
-    (progn
-      (require 'server)
-      (sleep-for 1)
-      (server-eval-at "serverN" '(progn
-				   (auto-revert-buffers)
-				   (eab/check-csum-all-GREP)
-				   (eab/send-csum-all)
-				   (delete-frame)))
-      (kill-emacs))))
+  (let ((fname (if arg 'eab/check-csum-all 'eab/check-csum-all-GREP)))
+    (funcall
+     `(lambda () (async-eval
+		     (lambda (result) (message "async result: <%s>" result))
+		   (progn
+		     (require 'server)
+		     (sleep-for 1)
+		     (server-eval-at "serverN" '(progn
+						  (auto-revert-buffers)
+						  (,fname)
+						  (eab/send-csum-all)
+						  (delete-frame)))
+		     (kill-emacs)))))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 

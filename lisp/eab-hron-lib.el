@@ -47,7 +47,7 @@
 	     (end (if (eq (point) pend) (save-excursion (end-of-buffer) (point)) pend)))
 	(if (re-search-forward org-ts-regexp-both end t)
 	    (org-time-string-to-seconds (match-string 0))
-	  (org-float-time (current-time)))))))
+	  (org-float-time '(11861 17628 167611 772000)))))))
 
 ;; DONE debug: org-table-get-specials() conflicts with :tags
 (defun eab/work-tags () "w1c|w2c|plan|hron")

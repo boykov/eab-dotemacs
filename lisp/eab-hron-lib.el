@@ -23,6 +23,7 @@
     (eab/check-csum-all)
     (eab/send-csum-all)
     ;; (org-mobile-push)
+    (eab/shell-command "git stash save batch")
     (eab/update-agenda)
     (delete-frame nil 'force)))
 

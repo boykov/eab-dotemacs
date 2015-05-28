@@ -28,6 +28,7 @@
 
 (defun eab/org-publish-html ()
   (interactive)
+  (org-publish-remove-all-timestamps)
   (async-eval
       (lambda (result) (message "async result: <%s>" result))
     (progn

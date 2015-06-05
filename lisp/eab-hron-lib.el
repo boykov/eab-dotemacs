@@ -25,8 +25,8 @@
     ;; (org-mobile-push)
     (eab/shell-command "git stash save batch")
     (sleep-for 1)
-    (eab/update-agenda)
-    (delete-frame nil 'force)))
+    (eab/update-agenda)))
+    ;; (delete-frame nil 'force)))
 
 ;; DONE get-buffer по имени буфера: нарушение SPOT!
 (defun eab/update-agenda ()
@@ -448,10 +448,10 @@
 
 (defun eab/send-csum-all-remote (&optional arg)
   (interactive "P")
-  (let ((shell-command-switch "-ic")) (eab/shell-command "nemacs"))
-  (sleep-for 1)
-  (eab/shell-command "wmctrl -r \"emacsserverN\" -b add,below") ;; TODO влияет и на обычный nemacs?
-  (eab/shell-command "wmctrl -a \"emacs@\"")
+  ;; (let ((shell-command-switch "-ic")) (eab/shell-command "nemacs"))
+  ;; (sleep-for 1)
+  ;; (eab/shell-command "wmctrl -r \"emacsserverN\" -b add,below") ;; TODO влияет и на обычный nemacs?
+  ;; (eab/shell-command "wmctrl -a \"emacs@\"")
   (let ((fname (if arg 'eab/check-csum-all 'eab/check-csum-all-GREP)))
     (funcall
      `(lambda () (async-eval

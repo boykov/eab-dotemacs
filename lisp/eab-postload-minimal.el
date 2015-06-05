@@ -16,7 +16,8 @@
 		   (if (file-exists-p (concat dir ".emacs.desktop"))
 		       (desktop-read dir))))
   (winner-mode)
-  (inferior-moz-start-process))
+  (if (= (shell-command "ps -A | grep Xorg") 0)
+      (inferior-moz-start-process)))
 
 (if (and (eab/ondaemon "serverP") (not noninteractive))
     (progn

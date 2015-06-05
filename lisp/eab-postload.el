@@ -12,11 +12,12 @@
   (eab/bind-path keyfreq-file)
   (keyfreq-mode 1)
   (keyfreq-autosave-mode 1)
-  (setq minibuffer-frame-alist
-	`((top . ,(/ (x-display-pixel-height) 2))
-	  (left . ,(/ (* (x-display-pixel-width) 1) 4))
-	  (width . ,(/ (* 1on1-minibuffer-frame-width-percent (x-display-pixel-width))
-		       (* 100 (frame-char-width 1on1-minibuffer-frame)) 2)) (height . 2)))
+  (if (= (shell-command "ps -A | grep Xorg") 0)
+      (setq minibuffer-frame-alist
+	    `((top . ,(/ (x-display-pixel-height) 2))
+	      (left . ,(/ (* (x-display-pixel-width) 1) 4))
+	      (width . ,(/ (* 1on1-minibuffer-frame-width-percent (x-display-pixel-width))
+			   (* 100 (frame-char-width 1on1-minibuffer-frame)) 2)) (height . 2))))
 
   ;; (make-frame (append 1on1-minibuffer-frame-alist minibuffer-frame-alist))
   (load-file (concat user-emacs-directory "eab-secrets.el"))

@@ -295,6 +295,8 @@
 (define-key eab/temacs-map (kbd "q") 'ergoemacs-open-last-closed)
 (define-key eab/temacs-map (kbd "/") 'ergoemacs-toggle-letter-case)
 
+
+(define-key eab/temacs-map (kbd "C-f") 'eab/gr-status)
 (define-key eab/temacs-map (kbd "h") 'eab/hron-todo)
 (define-key eab/temacs-map (kbd "M-h") 'eab/send-csum-all-remote)
 (define-key eab/temacs-map (kbd "v") 'eab/org-insert-link-fast)
@@ -846,6 +848,7 @@
   (define-key term-raw-map (kbd "M-z") 'nil)
   (define-key term-raw-map (kbd "M-s") 'nil)
   (define-key term-raw-map (kbd "C-b") 'nil)
+  (define-key term-raw-map (kbd "C-a") 'nil)
   (define-key term-raw-map (kbd "C-o") 'nil)
   (define-key term-raw-map (kbd "C-h") 'nil)
   (define-key term-raw-map (kbd "C-c s") 'nil)

@@ -38,6 +38,7 @@
     (server-eval-at
      "server"
      '(progn
+	(auto-revert-buffers)
 	(eab/renew-agenda)
 	)))))
 

@@ -145,3 +145,5 @@
 	;; anything-extension
 	;; anything-complete
 	))
+
+(provide 'eab-packages)

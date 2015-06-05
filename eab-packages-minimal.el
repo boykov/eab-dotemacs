@@ -57,3 +57,5 @@
 	edit-list
 	yasnippet
 	))
+
+(provide 'eab-packages-minimal)

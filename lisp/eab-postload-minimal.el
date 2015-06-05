@@ -55,3 +55,4 @@
    'th-evince-sync))
 
 (setq default-input-method "russian-computer")
+(workgroups-mode 1)

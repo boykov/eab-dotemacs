@@ -36,7 +36,6 @@
 
 (setq wg-use-default-session-file 't)
 (setq wg-control-frames 'nil)
-(workgroups-mode 1)
 
 (setq wg-mode-line-decor-divider "")
 

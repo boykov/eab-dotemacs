@@ -28,7 +28,7 @@
 (setq desktop-load-locked-desktop 't)
 (if (and (not noninteractive))
     (progn
-      (if (not dotemacs-loaded-ok)
+      (if (and (boundp 'dotemacs-loaded-ok) (not dotemacs-loaded-ok))
 	  (add-to-list 'mode-line-modes '(t " [ERROR] ")))
       ;; TODO раньше был nil, потом стало глючить
       ;; из-за enable-local-variables

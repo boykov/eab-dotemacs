@@ -93,7 +93,7 @@
 
 ")
     (save-buffer)
-    (close-current-buffer)))
+    (ergoemacs-close-current-buffer)))
 
 (add-hook 'org-agenda-mode-hook (lambda () (hl-line-mode 1)))
 

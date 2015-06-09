@@ -3,7 +3,7 @@
 (defun eab/tangle-init ()
   "Function is used in init.org, testbedhub"
   (org-babel-tangle)
-  (close-current-buffer))
+  (ergoemacs-close-current-buffer))
 
 (org-babel-do-load-languages
  'org-babel-load-languages

@@ -4,7 +4,8 @@
 (require 'helm-elisp)
 (require 'helm-locate)
 (require 'helm-config)
-(helm-match-plugin-mode 0)
+(require 'helm-match-plugin)
+;; (helm-match-plugin-mode 0)
 
 (eab/bind-path helm-c-adaptative-history-file)
 

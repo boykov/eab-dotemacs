@@ -1,7 +1,7 @@
 (require 'smart-compile)
 
 (setq compile-command "make ")
-(setq compilation-buffer-name-function (lambda (mode) (concat "*" (downcase mode) ": " (buffer-name) "*")))
+(setq compilation-buffer-name-function (lambda (mode) (concat "*" (downcase mode) ": " (projectile-project-name) "*")))
 
 ;; TODO This variable may be risky if used as a file-local variable.
 (defun eab/toggle-recompile-on-save ()

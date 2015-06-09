@@ -116,3 +116,5 @@
 	 :author-info nil
 	 :creator-info nil)
 	("html" :components ("html-base" "org-static"))))
+
+(provide 'eab-org-publish)

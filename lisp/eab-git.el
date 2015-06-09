@@ -16,3 +16,5 @@
   (save-window-excursion
     (shell-command "git --no-pager commit --amend --reuse-message=HEAD")
     (magit-refresh)))
+
+(provide 'eab-git)

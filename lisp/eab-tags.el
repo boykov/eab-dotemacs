@@ -73,3 +73,5 @@
   (interactive "DDirectory: ")
   (shell-command (format "find %s -type f -regex \"\\(.*.c\\\|.*.h\\)\" | etags - &"
                           dir-name)))
+
+(provide 'eab-tags)

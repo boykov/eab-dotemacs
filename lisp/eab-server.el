@@ -36,3 +36,5 @@
       (server-eval-at "serverN" '(progn
 				   (org-publish-project "html" 't)
 				   (org-publish-project "html-clock" 't))))))
+
+(provide 'eab-server)

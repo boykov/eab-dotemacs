@@ -35,3 +35,5 @@
 (setq org-icalendar-include-todo 'all)
 (setq org-enforce-todo-dependencies t)
 (setq org-enforce-todo-checkbox-dependencies t)
+
+(provide 'eab-org-todo)

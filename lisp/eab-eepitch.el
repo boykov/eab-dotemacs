@@ -255,3 +255,5 @@
 ;; There C-c| py-execute-region
 ;; (fset 'eab/python-send-paragraph
 ;;    "\350\C-c\C-r\M-}\C-n")
+
+(provide 'eab-eepitch)

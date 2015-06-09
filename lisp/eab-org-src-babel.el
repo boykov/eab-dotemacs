@@ -39,3 +39,5 @@
 			   ("asymptote" . asy)
 			   ("cl" . lisp)
 			   ("dot" . graphviz-dot)))
+
+(provide 'eab-org-src-babel)

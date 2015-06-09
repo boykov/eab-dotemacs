@@ -83,3 +83,5 @@
 (defadvice winner-redo (after eab-winner-redo-after activate)
   (region-bindings-mode-enable))
 
+
+(provide 'eab-workflow)

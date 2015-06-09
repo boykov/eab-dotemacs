@@ -59,3 +59,5 @@
   (moccur-search "^  [^@].*//" t (list (current-buffer))))
 
 ;; (twittering-load-private-info-with-guide)
+
+(provide 'eab-twit)

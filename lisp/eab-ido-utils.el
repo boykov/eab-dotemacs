@@ -78,3 +78,5 @@
   (interactive)
   (eab/ido-wmctrl-pdf-1)
   (minibuffer-keyboard-quit))
+
+(provide 'eab-ido-utils)

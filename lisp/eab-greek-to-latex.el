@@ -59,3 +59,5 @@
 	       (save-excursion
 		 (eab/fast-replace-in-region (car x) (cadr x) beg end)))
 	    eab/greek-to-latex)))
+
+(provide 'eab-greek-to-latex)

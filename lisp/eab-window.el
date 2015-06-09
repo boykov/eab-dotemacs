@@ -62,3 +62,5 @@
 (defun eab/switch-eepitch-target ()
   (interactive)
   (switch-to-buffer-other-window eepitch-target-buffer))
+
+(provide 'eab-window)

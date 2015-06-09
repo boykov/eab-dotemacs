@@ -43,3 +43,5 @@
   (let ((word (ad-get-arg 0)))
     (if (not (string-equal word ""))
 	(define-abbrev eab-abbrev-table word word))))
+
+(provide 'eab-words)

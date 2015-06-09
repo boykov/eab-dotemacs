@@ -158,3 +158,5 @@
   (eab/short-name-agenda))
 ;; (ad-remove-advice 'org-search-view 'after 'eab-advice-search-view)
 ;; (ad-deactivate 'org-search-view)
+
+(provide 'eab-org-agenda)

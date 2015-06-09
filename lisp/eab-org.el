@@ -129,3 +129,5 @@
 (setq org-log-done (quote time))
 (setq org-log-into-drawer t)
 
+
+(provide 'eab-org)

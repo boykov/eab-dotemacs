@@ -291,3 +291,5 @@
                                             ("5" "maple" nil "mint")
                                             ("4" "maple" nil "mint")))))
 
+
+(provide 'eab-depend)

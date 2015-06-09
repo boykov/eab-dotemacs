@@ -56,3 +56,5 @@
 
 (setq default-input-method "russian-computer")
 (workgroups-mode 1)
+
+(provide 'eab-postload-minimal)

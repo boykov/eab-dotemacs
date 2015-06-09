@@ -76,3 +76,5 @@
 (defun eab/gnus-group-select (&optional all)
   (interactive "P")
   (gnus-group-select-group (if all all 100)))
+
+(provide 'eab-gnus)

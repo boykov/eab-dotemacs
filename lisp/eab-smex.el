@@ -42,3 +42,5 @@
       (let ((minibuffer-history-variable 'extended-command-history))
 	(helm-minibuffer-history))
         (helm-minibuffer-history)))
+
+(provide 'eab-smex)

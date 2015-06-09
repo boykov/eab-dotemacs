@@ -59,3 +59,5 @@
   (let ((compilation-buffer-name-function
 	 (lambda (mode) (concat "*" "gr status" "*"))))
     (eab/compile (concat "gr status "))))
+
+(provide 'eab-compile)

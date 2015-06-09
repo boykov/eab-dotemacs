@@ -128,3 +128,5 @@
   (interactive)
   (setq ido-exit 'eab-main)
   (exit-minibuffer))
+
+(provide 'eab-ido)

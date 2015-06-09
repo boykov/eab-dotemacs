@@ -63,3 +63,5 @@
 
 (add-to-list 'desktop-minor-mode-handlers
 	     '(undo-tree-mode . eab/desktop-ignore-auto-complete-mode))
+
+(provide 'eab-desktop)

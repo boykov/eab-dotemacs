@@ -136,3 +136,5 @@
 (setq eab/anything-c-source-litrffi '((name . "Lines from file")
                                       (candidates . eab/anything-litrffi)
                                       (action . insert)))
+
+(provide 'eab-helm-anything)

@@ -39,3 +39,5 @@
       (eab/shell-command "wmctrl -a \"minibuffer\"")
     (setq eab-minibuffer-frame
 	  (make-frame (append minibuffer-frame-alist 1on1-minibuffer-frame-alist)))))
+
+(provide 'eab-miniframe)

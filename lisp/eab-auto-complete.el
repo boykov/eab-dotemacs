@@ -95,3 +95,5 @@
 	  (lambda ()
 	    (setq ac-sources
 		  '(ac-source-words-in-buffer ac-source-american-english ac-source-symbols))))
+
+(provide 'eab-auto-complete)

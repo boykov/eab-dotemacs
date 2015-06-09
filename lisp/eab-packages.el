@@ -48,3 +48,5 @@
   (previous-line)
   (eab/print-el-get-installed))
 
+
+(provide 'eab-packages)

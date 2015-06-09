@@ -49,3 +49,5 @@
 (key-chord-mode 1) ; TODO заедает, если не в конце dotemacs, не включается по-умолчанию (или выключается из-за чего-то)
 (yas-reload-all)
 
+
+(provide 'eab-postload)

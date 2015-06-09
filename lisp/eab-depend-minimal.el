@@ -47,3 +47,5 @@
 				     '(org-delete-char
 				       org-self-insert-command)))
 
+
+(provide 'eab-depend-minimal)

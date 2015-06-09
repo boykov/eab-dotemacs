@@ -34,3 +34,5 @@
 	 (forward-sexp)
 	 (let ((end (point)))
 	   (buffer-substring-no-properties bgn end))))))))
+
+(provide 'eab-find-func)

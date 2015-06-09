@@ -19,3 +19,5 @@
     (copy-region-as-kill (mark) (point))
     (kill-buffer buf-name)))
 
+
+(provide 'eab-dired)

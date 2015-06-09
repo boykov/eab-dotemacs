@@ -45,3 +45,5 @@
 				   (output-html "xdg-open")))
 
 (setq TeX-command-default "EAB")
+
+(provide 'eab-auctex)

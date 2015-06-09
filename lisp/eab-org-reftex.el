@@ -27,3 +27,5 @@
 
 (add-hook 'LaTeX-mode-hook 'turn-on-reftex) ;; reftex - ref, labels и т.д. в LaTeX
 (setq reftex-plug-into-AUCTeX t)
+
+(provide 'eab-org-reftex)

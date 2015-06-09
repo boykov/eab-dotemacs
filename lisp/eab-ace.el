@@ -28,3 +28,5 @@
     (ace-jump-do (concat "\\b" isearch-string))))
 
 ;; Move to [[file:el-get/ace-jump-mode/ace-jump-mode.el][file:~/.emacs.d/el-get/ace-jump-mode/ace-jump-mode.el]]
+
+(provide 'eab-ace)

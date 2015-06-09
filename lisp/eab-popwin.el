@@ -23,3 +23,5 @@
       (setq eab/special-buffer-displaedp 't))))
 
 (global-set-key (kbd "<f3>") 'eab/special-buffer-toggle)
+
+(provide 'eab-popwin)

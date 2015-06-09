@@ -50,3 +50,5 @@
     (call-interactively 'find-grep)))
 
 (grep-a-lot-advise eab/grep)
+
+(provide 'eab-grep)

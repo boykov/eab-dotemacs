@@ -42,3 +42,5 @@
 	 ("\\paragraph{%s}" . "\\paragraph*{%s}")
 	 ("\\subparagraph{%s}" . "\\subparagraph*{%s}")
 	 ))
+
+(provide 'eab-org-latex)

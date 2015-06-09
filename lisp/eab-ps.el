@@ -24,3 +24,5 @@
   (shell-command cmd)
   (shell-command (concat "rm " eab/tmp-ps))
   (message (concat "Saved to:  " (buffer-name) ".pdf")))
+
+(provide 'eab-ps)

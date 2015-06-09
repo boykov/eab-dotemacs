@@ -14,3 +14,5 @@
 ;; TODO too much?
 (setq appt-message-warning-time 12)
 (setq appt-display-interval 12)
+
+(provide 'eab-appt)

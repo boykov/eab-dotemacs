@@ -31,3 +31,5 @@
 (defun eab/howdoi ()
   (interactive)
   (call-interactively 'howdoi-query-line-at-point-replace-by-code-snippet))
+
+(provide 'eab-ui)

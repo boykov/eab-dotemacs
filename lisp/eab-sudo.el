@@ -35,3 +35,5 @@
   ""
   (interactive)
   (eab/global-sudo-save-mode -1))
+
+(provide 'eab-sudo)

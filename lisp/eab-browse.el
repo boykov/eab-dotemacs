@@ -10,3 +10,5 @@
 			   (buffer-substring (region-beginning) (region-end))
 			 (read-string "Google: "))))))
 
+
+(provide 'eab-browse)

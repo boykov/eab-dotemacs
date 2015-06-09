@@ -192,10 +192,10 @@
 (require 'org-link-minor-mode)
 (require 'idle-highlight-mode)
 
-(require 'cask)
-(require 'pallet)
-(pallet-init)
-(cask-initialize)
+;; (require 'cask)
+;; (require 'pallet)
+;; (pallet-init)
+;; (cask-initialize)
 
 ;; (require 'ignoramus)
 ;; (ignoramus-setup)

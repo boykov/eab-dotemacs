@@ -4,7 +4,8 @@
 (eab/bind-path power-macros-file)
 
 (if (string= (file-name-nondirectory power-macros-file) "eab-pmacros.el") 
-    (load power-macros-file))
+    (if (file-exists-p power-macros-file)
+	(load power-macros-file)))
 
 (defun eab/load-personal-minimal ()
   (interactive)

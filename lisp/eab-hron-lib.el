@@ -221,6 +221,10 @@
 ;; call_blockname() перестанет работать: нет такого блока
 (defun eab/create-nightly ()
   (interactive)
+  (eab/create-template "nightly")
+  )
+
+(defun eab/create-template (name)
   (let ((fnames
 	 (remove-if
 	  (lambda (s) (or (string= s "level-0.org")
@@ -228,12 +232,14 @@
 	  (mapcar 'file-name-nondirectory
 		  (file-expand-wildcards
 		   (concat org-directory "clock/*.org"))))))
-    (mapcar (lambda (x)
-	      (shell-command (concat "grep -v -e \"^\\#\\+\" " org-directory "clock/" x " > " org-directory "nightly/" x )))
+    (mapcar
+     (lambda (x)
+       (shell-command
+	(concat "grep -v -e \"^\\#\\+\" " org-directory "clock/" x " > " org-directory name "/" x )))
 	    fnames)
-    (shell-command (concat org-directory "create-nightly.sh"))
+    (shell-command (concat org-directory "create-" name ".sh"))
     (mapcar (lambda (x)
-	      (shell-command (concat "rm -f " org-directory "nightly/" x)))
+	      (shell-command (concat "rm -f " org-directory name "/" x)))
 	    fnames))
   )
 

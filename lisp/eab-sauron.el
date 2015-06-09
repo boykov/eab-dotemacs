@@ -18,3 +18,4 @@
 	    (sauron-fx-mplayer "/usr/share/sounds/ubuntu/stereo/service-login.ogg")
 	    (notifications-notify :title "Sauron" :body msg)))
 
+(provide 'eab-sauron)

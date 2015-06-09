@@ -83,3 +83,5 @@
 
 (setq x-select-enable-clipboard t)
 (column-number-mode 1)
+
+(provide 'eab-ui-minimal)

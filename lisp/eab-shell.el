@@ -51,3 +51,4 @@
 	(t
 	 (call-interactively 'shell-command))))
 
+(provide 'eab-shell)

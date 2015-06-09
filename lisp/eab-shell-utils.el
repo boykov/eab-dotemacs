@@ -129,3 +129,5 @@
 		(progn
 		  (require 'server)
 		  (server-eval-at "serverN" '(eab/shell-translate ,phrase 't)))))))
+
+(provide 'eab-shell-utils)

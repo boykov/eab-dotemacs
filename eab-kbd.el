@@ -301,7 +301,7 @@
 (define-key eab/temacs-map (kbd "M-h") 'eab/send-csum-all-remote)
 (define-key eab/temacs-map (kbd "v") 'eab/org-insert-link-fast)
 ;; (define-key eab/temacs-map (kbd "s") 'eab/sudo-save-toggle)
-(define-key eab/temacs-map (kbd ".") eab/one-key-map) ;; temacs.
+(define-key eab/temacs-map (kbd ".") (kbd "C-c . RET"))
 (define-key eab/temacs-map (kbd "O") 'esc-toggle-window-selectability)
 (define-key eab/temacs-map (kbd "D") 'toggle-window-dedicated)
 
@@ -309,7 +309,10 @@
 (define-key eab/temacs-map (kbd "z") 'org-archive-set-tag)
 
 (define-key eab/temacs-map (kbd "b") 'bookmark-set)
+(define-key eab/temacs-map (kbd "n SPC") 'dash-to-space3)
 (define-key eab/temacs-map (kbd "nn") 'star-to-space2)
+(define-key eab/temacs-map (kbd "ns") 'split-clock)
+(define-key eab/temacs-map (kbd "nc") 'insert-clock)
 (define-key eab/temacs-map (kbd "Y") 'auto-complete-mode) ;; temacs
 (define-key eab/temacs-map (kbd "g") 'helm-google-suggest)
 (define-key eab/temacs-map (kbd "y") 'yas-minor-mode)
@@ -1177,6 +1180,7 @@
       (define-key region-bindings-mode-map "a" 'mc/mark-all-like-this)
       (define-key region-bindings-mode-map "i" 'mc/mark-previous-like-this)
       (define-key region-bindings-mode-map "k" 'mc/mark-next-like-this)
+      (define-key region-bindings-mode-map "л" 'mc/mark-next-like-this)
       (define-key region-bindings-mode-map "m" 'mc/mark-more-like-this-extended)))
 
 

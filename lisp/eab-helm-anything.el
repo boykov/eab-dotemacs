@@ -5,7 +5,8 @@
 (require 'helm-locate)
 (require 'helm-config)
 (require 'helm-match-plugin)
-;; (helm-match-plugin-mode 0)
+;; (helm-match-plugin-mode 0) ;; bug in terminal mode
+(remove-hook 'helm-update-hook 'helm-mp-highlight-match)
 
 (eab/bind-path helm-c-adaptative-history-file)
 

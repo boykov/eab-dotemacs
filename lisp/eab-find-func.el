@@ -2,12 +2,14 @@
 (defun eab/find-function-at-point ()
   (interactive)
   (let ((function (symbol-at-point)))
-    (find-function-do-it function nil 'switch-to-buffer)))
+    (if (fboundp function)
+	(find-function-do-it function nil 'switch-to-buffer))))
 
 (defun eab/find-variable-at-point ()
   (interactive)
   (let ((variable (symbol-at-point)))
-    (find-function-do-it variable 'defvar 'switch-to-buffer)))
+    (if (boundp variable)
+	(find-function-do-it variable 'defvar 'switch-to-buffer))))
 
 ;; a la symbol-to-string, string-to-symbol:
 ;;      symbol-name,      intern

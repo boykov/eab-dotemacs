@@ -16,6 +16,7 @@
 (add-hook 'sauron-event-added-functions
 	  (lambda (origin prio msg &optional props)
 	    (sauron-fx-mplayer "/usr/share/sounds/ubuntu/stereo/service-login.ogg")
-	    (notifications-notify :title "Sauron" :body msg)))
+	    ;;(notifications-notify :title "Sauron" :body msg)))
+	    ))
 
 (provide 'eab-sauron)

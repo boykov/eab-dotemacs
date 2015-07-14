@@ -478,7 +478,7 @@
 						  (auto-revert-buffers)
 						  (,fname)
 						  (eab/send-csum-all)
-						  (delete-frame)))
+						  ))
 		     (kill-emacs)))))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

@@ -881,6 +881,7 @@
 (eab/add-hook grep-mode-hook eab/grep-hook
   (define-key grep-mode-map (kbd "B") 'eab/switch-grep-prev)
   (define-key grep-mode-map (kbd "F") 'eab/switch-grep-next)
+  (define-key grep-mode-map (kbd "C-o") 'nil)
   (define-key grep-mode-map (kbd "M-p") 'nil)
   (define-key grep-mode-map (kbd "g") (ilam (let ((compilation-buffer-name-function nil)) (recompile))))
   (define-key grep-mode-map (kbd "M-n") 'nil)
@@ -1179,6 +1180,7 @@
 
       (define-key region-bindings-mode-map "a" 'mc/mark-all-like-this)
       (define-key region-bindings-mode-map "i" 'mc/mark-previous-like-this)
+      (define-key region-bindings-mode-map "ш" 'mc/mark-previous-like-this)
       (define-key region-bindings-mode-map "k" 'mc/mark-next-like-this)
       (define-key region-bindings-mode-map "л" 'mc/mark-next-like-this)
       (define-key region-bindings-mode-map "m" 'mc/mark-more-like-this-extended)))

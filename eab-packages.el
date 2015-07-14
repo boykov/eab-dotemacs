@@ -22,6 +22,7 @@
 
 (setq eab/package-sources-extra
       '(
+	docker
 	dired+
 	dired-details
 	dired-details+

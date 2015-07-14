@@ -103,6 +103,7 @@
 (setq shell-file-name "/bin/bash")
 
 (require 'dired-x)
+(setq diredp-hide-details-initially-flag nil)
 (require 'dired+)
 ;; TODO почему приходится делать unload?
 ;; (unload-feature 'dired-details+ 't)

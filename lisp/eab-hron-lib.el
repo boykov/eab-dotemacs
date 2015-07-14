@@ -25,12 +25,16 @@
     ;; (org-mobile-push)
     (eab/shell-command "git stash save batch")
     (sleep-for 1)
+    (global-auto-revert-mode -1)
+    (global-auto-revert-mode)
     (eab/update-agenda)))
     ;; (delete-frame nil 'force)))
 
+;; TODO bypass the global-auto-revert-mode hack (eab/batch-publish and eab/update-agenda)
 ;; DONE get-buffer по имени буфера: нарушение SPOT!
 (defun eab/update-agenda ()
   (interactive)
+  (server-eval-at "server" '(sauron-add-event 'eab 3 "Come in to eab/update-agenda"))
   (async-eval
     (lambda (result) (message "async result: <%s>" result))
   (progn
@@ -38,8 +42,12 @@
     (server-eval-at
      "server"
      '(progn
+	(global-auto-revert-mode -1)
+	(global-auto-revert-mode)
 	(auto-revert-buffers)
+	(sauron-add-event 'eab 3 "After auto-revert-buffers")
 	(eab/renew-agenda)
+	(sauron-add-event 'eab 3 "After eab/renew-agenda")
 	)))))
 
 (defun eab/org-sort-time-func ()

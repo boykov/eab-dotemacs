@@ -15,7 +15,7 @@
 (eab/bind-path url-configuration-directory)
 
 (require 'autorevert)
-(global-auto-revert-mode t)
+(global-auto-revert-mode)
 
 (require 'async-eval)
 

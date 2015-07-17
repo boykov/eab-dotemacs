@@ -302,6 +302,7 @@
 (define-key eab/temacs-map (kbd "v") 'eab/org-insert-link-fast)
 ;; (define-key eab/temacs-map (kbd "s") 'eab/sudo-save-toggle)
 (define-key eab/temacs-map (kbd ".") (kbd "C-c . RET"))
+(define-key eab/temacs-map (kbd "M-.") (kbd "C-c . RET C-l RET C-l l"))
 (define-key eab/temacs-map (kbd "O") 'esc-toggle-window-selectability)
 (define-key eab/temacs-map (kbd "D") 'toggle-window-dedicated)
 

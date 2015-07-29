@@ -595,6 +595,7 @@
   (define-key magit-mode-map (kbd "M-H") 'nil)
   (define-key magit-mode-map (kbd "M-1") 'nil)
   (define-key magit-mode-map (kbd "M-2") 'nil)
+;;  (define-key magit-mode-map (kbd "M-g") 'magit-fetch-all)
   (define-key magit-mode-map (kbd "M-g") 'magit-remote-update)
   (define-key magit-mode-map (kbd "C-d") 'magit-show-level-4)
   (define-key magit-mode-map (kbd "C-D") 'magit-show-level-4-all)

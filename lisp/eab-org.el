@@ -30,6 +30,7 @@
 (eab/bind-path org-clock-persist-file)
 (eab/bind-path org-mobile-directory)
 (eab/bind-path bibtex-files)
+(eab/bind-path org-ditaa-jar-path)
 
 ;; (org-mobile-create-sumo-agenda) - Create a file that contains all custom agenda views.
 

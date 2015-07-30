@@ -14,6 +14,7 @@
 
 (setq eab/package-sources-minimal
       '(
+	spacemacs-theme
 	ergoemacs-mode
 	key-chord
 	auto-dictionary ;; switcher for flyspell
@@ -37,7 +38,7 @@
 	magit
 	magit-filenotify ;; needs emacs 24.4 with file-notify-support
 	git-commit
-	git-rebase
+;;	git-rebase ;; see in magit
 	magit-annex
 	orgit ;; org-magit obsolete
 	auctex

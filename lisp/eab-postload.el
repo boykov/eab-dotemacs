@@ -32,7 +32,7 @@
 
 (if (and (eab/ondaemon "server") (not noninteractive))
     (progn
-      (load-theme 'tsdh-dark)))
+      (load-theme 'spacemacs-dark 't)))
 
 ;; check inet connection first
 (eab/bind-path eab/check-inet-path)

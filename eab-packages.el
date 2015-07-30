@@ -88,7 +88,7 @@
 	python-environment
 	deferred
 	jedi
-	ipython
+	;; ipython
 	bibretrieve
 	git-annex
 	websocket

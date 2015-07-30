@@ -70,7 +70,7 @@
 ;; (setq slime-net-coding-system 'utf-8-unix)
 
 (require 'python-mode)
-(require 'ipython)
+;; (require 'ipython)
 ;; (require 'pymacs)
 (require 'pydoc-info)
 
@@ -282,7 +282,7 @@
 
 (add-hook 'maplev-mode-hook
           (lambda ()
-            (smart-operator-mode-on)
+;;            (smart-operator-mode-on)
             (setq maplev-mint-start-options (list "-q" "-P"))
             (setq maplev-executable-alist '(("11" "maple" nil "maple")
                                             ("10" "maple" nil "mint")

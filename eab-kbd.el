@@ -1115,9 +1115,9 @@
 
 (add-hook 'maplev-mode-hook
 	  (lambda () 
-            (define-key smart-operator-mode-map ":" 'self-insert-command)
-            (define-key smart-operator-mode-map "." 'self-insert-command)
-            (define-key smart-operator-mode-map "," 'self-insert-command)
+            ;; (define-key smart-operator-mode-map ":" 'self-insert-command)
+            ;; (define-key smart-operator-mode-map "." 'self-insert-command)
+            ;; (define-key smart-operator-mode-map "," 'self-insert-command)
 
 	    (define-key maplev-mode-map (kbd "C-c d") 'maplev-help-at-point)
 	    (define-key maplev-mode-map (kbd "C-k") 'toggle-input-method)))

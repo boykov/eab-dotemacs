@@ -28,14 +28,14 @@
 (setq desktop-load-locked-desktop 't)
 (if (and (not noninteractive))
     (progn
-      (if (and (boundp 'dotemacs-loaded-ok) (not dotemacs-loaded-ok))
+      (if configuration-layer-error-count
 	  (add-to-list 'mode-line-modes '(t " [ERROR] ")))
       ;; TODO раньше был nil, потом стало глючить
       ;; из-за enable-local-variables
       (setq-default TeX-master t)))
 
 (defun eab/test-dotemacs ()
-  (if dotemacs-loaded-ok
+  (if (not configuration-layer-error-count)
       (progn
 	(server-eval-at "server" '(sauron-add-event 'eab 3 "OK Dotemacs is loaded! Expectations OK!"))
 	(kill-emacs))

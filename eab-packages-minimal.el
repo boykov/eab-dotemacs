@@ -35,11 +35,11 @@
 	dictionary
 	sauron
 	magit
-	;; magit-filenotify ;; needs emacs 24.4 with file-notify-support
-	git-commit-mode
-	git-rebase-mode
+	magit-filenotify ;; needs emacs 24.4 with file-notify-support
+	git-commit
+	git-rebase
 	magit-annex
-	org-magit
+	orgit ;; org-magit obsolete
 	auctex
 	org-agenda-property
 	region-bindings-mode

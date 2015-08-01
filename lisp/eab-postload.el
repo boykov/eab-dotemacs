@@ -28,6 +28,7 @@
   (sauron-notifications-start)
   (sauron-org-start)
   (sauron-twittering-stop)
+  (wg-change-modeline)
   )
 
 (if (and (eab/ondaemon "server") (not noninteractive))

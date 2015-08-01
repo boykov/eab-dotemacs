@@ -60,4 +60,18 @@
 	 (lambda (mode) (concat "*" "gr status" "*"))))
     (eab/compile (concat "gr status "))))
 
+(defun eab/compile-goto-error ()
+  (interactive)
+  (let ((cwc (current-window-configuration)))
+    (funcall
+     `(lambda ()
+	(defun eab/compile-goto-error-internal ()
+	  (let ((cb (current-buffer))
+		(p (point)))
+	    (set-window-configuration ,cwc)
+	    (switch-to-buffer cb)
+	    (goto-char p ))))))
+  (compile-goto-error)
+  (run-with-timer 0 nil 'eab/compile-goto-error-internal))
+
 (provide 'eab-compile)

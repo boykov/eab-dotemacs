@@ -583,7 +583,7 @@
   (define-key magit-log-mode-map (kbd "C-l M-p") 'log-edit-previous-comment)
   (define-key magit-log-mode-map (kbd "M-n") 'nil)
   (define-key magit-log-mode-map (kbd "M-p") 'nil)
-  (define-key magit-mode-map (kbd "W") (kbd "l - a l l"))
+  (define-key magit-mode-map (kbd "W") (kbd "l a"))
   (define-key magit-mode-map (kbd "Q") (kbd "l - a l = a E v g e n y SPC B  o y k o v RET l"))
   ;;  (ilam (execute-kbd-macro (read-kbd-macro "l - a l l")))
   (define-key magit-mode-map (kbd "J") 'magit-commit-amend)
@@ -597,16 +597,16 @@
   (define-key magit-mode-map (kbd "M-2") 'nil)
   (define-key magit-mode-map (kbd "M-g") 'magit-fetch-all)
 ;;  (define-key magit-mode-map (kbd "M-g") 'magit-remote-update)
-  (define-key magit-mode-map (kbd "C-d") 'magit-show-level-4)
-  (define-key magit-mode-map (kbd "C-D") 'magit-show-level-4-all)
-  (define-key magit-mode-map (kbd "C-f") 'magit-show-only-files)
-  (define-key magit-mode-map (kbd "C-F") 'magit-show-only-files-all)
-  (define-key magit-mode-map (kbd "s-1") 'magit-show-level-1-all)  ;; temacs
-  (define-key magit-mode-map (kbd "s-2") 'magit-show-level-2-all)  ;; temacs
-  (define-key magit-mode-map (kbd "<backtab>") 'magit-show-level-2-all)
+  (define-key magit-mode-map (kbd "C-d") 'magit-section-show-level-4)
+  (define-key magit-mode-map (kbd "C-D") 'magit-section-show-level-4-all)
+;;  (define-key magit-mode-map (kbd "C-f") 'magit-show-only-files)
+;;  (define-key magit-mode-map (kbd "C-F") 'magit-show-only-files-all)
+  (define-key magit-mode-map (kbd "s-1") 'magit-section-show-level-1-all)  ;; temacs
+  (define-key magit-mode-map (kbd "s-2") 'magit-section-show-level-2-all)  ;; temacs
+  (define-key magit-mode-map (kbd "<backtab>") 'magit-section-show-level-2-all)
   (define-key magit-mode-map (kbd "RET") (ilam (magit-visit-item 't)))
-  (define-key magit-mode-map (kbd "s-3") 'magit-show-level-3-all)  ;; temacs
-  (define-key magit-mode-map (kbd "s-4") 'magit-show-level-4-all))  ;; temacs
+  (define-key magit-mode-map (kbd "s-3") 'magit-section-show-level-3-all)  ;; temacs
+  (define-key magit-mode-map (kbd "s-4") 'magit-section-show-level-4-all))  ;; temacs
 
 (eab/add-hook nroff-mode-hook eab/nroff-hook
   (define-key nroff-mode-map (kbd "M-s") 'nil)

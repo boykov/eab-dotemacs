@@ -4,6 +4,7 @@
 
 ;; DONE похоже, переменная server-name здесь еще не становится serverN
 
+(eab/bind-path eab/secrets-path)
 ; TODO create function and hook after first start frame
 (defun eab/load-personal ()
   (interactive)
@@ -20,7 +21,7 @@
 			   (* 100 (frame-char-width 1on1-minibuffer-frame)) 2)) (height . 2))))
 
   ;; (make-frame (append 1on1-minibuffer-frame-alist minibuffer-frame-alist))
-  (load-file (concat user-emacs-directory "eab-secrets.el"))
+  (load-file eab/secrets-path)
   (eab/check-smtp)
   (gnus)
   ;; (erc :server "localhost")

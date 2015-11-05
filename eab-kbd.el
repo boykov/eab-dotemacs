@@ -1159,7 +1159,7 @@
       (define-key region-bindings-mode-map "I" (ilam (eab/or-self-insert 'indent-region)))
       (define-key region-bindings-mode-map "Ш" (ilam (eab/or-self-insert 'indent-region)))
       (define-key region-bindings-mode-map "d" (ilam (eab/or-self-insert-body (progn (er/expand-region 0) (mark-defun)))))
-      (define-key region-bindings-mode-map "/" (ilam (let ((this-command 'toggle-letter-case)) (eab/or-self-insert 'toggle-letter-case))))
+      (define-key region-bindings-mode-map "/" (ilam (let ((this-command 'ergoemacs-toggle-letter-case)) (eab/or-self-insert 'ergoemacs-toggle-letter-case))))
       (define-key region-bindings-mode-map "r" (ilam (eab/or-self-insert 'string-rectangle)))
       (define-key region-bindings-mode-map "к" (ilam (eab/or-self-insert 'string-rectangle)))
       (define-key region-bindings-mode-map "t" (ilam (eab/or-self-insert 'anchored-transpose)))

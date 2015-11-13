@@ -1153,6 +1153,8 @@
 (defadvice region-bindings-mode-on (before eab-region-bindings-mode-on activate)
     (progn
       (setq region-bindings-mode-disabled-modes '(magit-status-mode magit-diff-mode))
+      (define-key region-bindings-mode-map "u" 'untabify)
+      (define-key region-bindings-mode-map "г" 'untabify)
       (define-key region-bindings-mode-map "0" (ilam (eab/or-self-insert-body (er/expand-region 0))))
       (define-key region-bindings-mode-map "p" (ilam (eab/or-self-insert-body (er/expand-region 1))))
       (define-key region-bindings-mode-map "-" (ilam (eab/or-self-insert-body (er/expand-region -1))))

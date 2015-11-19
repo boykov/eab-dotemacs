@@ -10,7 +10,7 @@
  '((clojure . t)
    (fortran . t)
    (makefile . t)
-   (R . t)
+   ;; (R . t) ;; TODO manual recompile ob-R.el in org-plus-contrib
    (python . t)
    (ruby . t)
    (dot . t)

@@ -604,7 +604,7 @@
   (define-key magit-mode-map (kbd "s-1") 'magit-section-show-level-1-all)  ;; temacs
   (define-key magit-mode-map (kbd "s-2") 'magit-section-show-level-2-all)  ;; temacs
   (define-key magit-mode-map (kbd "<backtab>") 'magit-section-show-level-2-all)
-  (define-key magit-mode-map (kbd "RET") (ilam (magit-visit-item 't)))
+;;  (define-key magit-mode-map (kbd "RET") (ilam (magit-visit-item 't)))
   (define-key magit-mode-map (kbd "s-3") 'magit-section-show-level-3-all)  ;; temacs
   (define-key magit-mode-map (kbd "s-4") 'magit-section-show-level-4-all))  ;; temacs
 

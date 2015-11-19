@@ -4,7 +4,8 @@
 (require 'helm-elisp)
 (require 'helm-locate)
 (require 'helm-config)
-(require 'helm-match-plugin)
+(require 'helm-multi-match)
+;;(require 'helm-match-plugin)
 ;; (helm-match-plugin-mode 0) ;; bug in terminal mode
 (remove-hook 'helm-update-hook 'helm-mp-highlight-match)
 

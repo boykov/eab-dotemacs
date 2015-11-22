@@ -351,6 +351,7 @@
 (define-key eab/wg-map (kbd "t") (ilam (eab/wg-switch-to-workgroup ":testbed:")))
 (define-key eab/wg-map (kbd "m") (ilam (eab/wg-switch-to-workgroup ":dbsym:")))
 (define-key eab/wg-map (kbd "e") (ilam (eab/wg-switch-to-workgroup ":doteab:")))
+(define-key eab/wg-map (kbd "C-e") (ilam (eab/wg-switch-to-workgroup ":eabdot:")))
 (define-key eab/wg-map (kbd "d") (ilam (eab/wg-switch-to-workgroup ":dot:")))
 (define-key eab/wg-map (kbd "l") (ilam (eab/wg-switch-to-workgroup ":lat:")))
 (define-key eab/wg-map (kbd "a") (ilam (eab/wg-switch-to-workgroup ":ag:")))

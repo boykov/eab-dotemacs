@@ -357,7 +357,7 @@
 (define-key eab/wg-map (kbd "a") (ilam (eab/wg-switch-to-workgroup ":ag:")))
 (define-key eab/wg-map (kbd "4") (ilam (eab/wg-switch-to-workgroup ":aaaa:")))
 (define-key eab/wg-map (kbd "5") (ilam (eab/wg-switch-to-workgroup ":ahmed:")))
-(define-key eab/wg-map (kbd "i") (ilam (eab/wg-switch-to-workgroup "bib")))
+(define-key eab/wg-map (kbd "i") (ilam (eab/wg-switch-to-workgroup ":bib:")))
 (define-key eab/wg-map (kbd "p") 'wg-switch-to-previous-workgroup)
 (define-key eab/wg-map (kbd "s") 'wg-switch-to-workgroup) ;; +
 (define-key eab/wg-map (kbd "x") 'wg-kill-ring-save-working-config) ;; wg-kill-ring-save-working-wconfig

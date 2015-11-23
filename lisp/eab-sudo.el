@@ -1,3 +1,5 @@
+;; TODO use sudoedit or tramp /sudo:?
+
 (defvar eab/sudo-save-mode nil
   "")
 

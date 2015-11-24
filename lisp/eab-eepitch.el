@@ -40,8 +40,8 @@
 ;; попробовать применить табличный метод (логика в таблице)
 (defun eab/this-line (line)
   ;; return true or false in depending on
-  (cond (
-	;;  (eab/in-target-buffer? "sage -python")
+  (cond
+	;;  ((eab/in-target-buffer? "sage -python")
         ;;  (list (eab/py-prepare line) t))
         ;; ((eab/in-target-buffer? "sage")
         ;;  (eab/sage-prepare line))
@@ -55,7 +55,7 @@
          (list (eab/py-prepare line) t))
         ((eab/in-target-buffer? "ipython")
          (list (eab/py-prepare line) t))
-        (t (list line 't)))))
+        (t (list line 't))))
 
 (defun eab/wrap-eepitch-this (line)
   (interactive)

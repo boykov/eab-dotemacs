@@ -78,6 +78,16 @@
       (goto-char (point-max))
       (switch-to-buffer-other-window cur))))
 
+(defun eab/append-this-line ()
+  (interactive)
+  (let* ((prepare (eab/ansi-prepare (url-eat-trailing-space (buffer-substring (ee-bol) (ee-eol)))))
+	 (line (car prepare))
+	 (line-split (cadr (split-string line"\\$ "))))
+    (ergoemacs-move-cursor-next-pane)
+    (insert line-split)
+    (newline)
+    (ergoemacs-move-cursor-next-pane)))
+
 ;; TODO (buffer-name) -> (file-name-nondirectory (buffer-file-name))
 (defun eab/eepitch-this-line (&optional arg)
   (interactive "p")

@@ -88,6 +88,13 @@
     (newline)
     (ergoemacs-move-cursor-next-pane)))
 
+(defun eab/append-this-line ()
+  (interactive)
+  (ergoemacs-move-cursor-next-pane)
+  (insert (substring (shell-command-to-string "cat ~/.bash_history | tail -1") 0 -1))
+  (newline)
+  (ergoemacs-move-cursor-next-pane))
+
 ;; TODO (buffer-name) -> (file-name-nondirectory (buffer-file-name))
 (defun eab/eepitch-this-line (&optional arg)
   (interactive "p")

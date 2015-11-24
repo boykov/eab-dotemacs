@@ -34,8 +34,8 @@
 (setq ibuffer-formats '((mark modified read-only " "
 			      (name 18 18 :left :elide))))
 
-(require 'el-expectations) ;; DONE devel minimalist unit testing framework
-(setq exps-last-testcase nil)
+;; (require 'el-expectations) ;; DONE devel minimalist unit testing framework
+;; (setq exps-last-testcase nil)
 
 (require 'one-key)
 

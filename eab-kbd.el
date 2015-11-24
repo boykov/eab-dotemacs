@@ -269,7 +269,6 @@
 (define-key eab/one-key-map (kbd "-") 'eepitch-sage-python)
 (define-key eab/one-key-map (kbd "g") 'eab/switch-grep)
 (define-key eab/one-key-map (kbd "l") 'helm-locate)
-(define-key eab/one-key-map (kbd "e") 'expectations-execute)
 
 ;; (global-set-key (kbd "C-.") eab/one-key-map)
 (global-set-key (kbd "C-e") eab/one-key-map)
@@ -319,7 +318,6 @@
 (define-key eab/temacs-map (kbd "y") 'yas-minor-mode)
 (define-key eab/temacs-map (kbd "P") 'smartparens-global-mode)
 (define-key eab/temacs-map (kbd ";") 'isearch-moccur)
-(define-key eab/temacs-map (kbd "e") 'expectations-execute)
 (define-key eab/temacs-map (kbd "r") 'region-bindings-mode)
 
 ;; shell and shell-utils
@@ -496,7 +494,6 @@
 (global-set-key (kbd "M-V") 'helm-show-kill-ring)
 (global-set-key (kbd "M-Z") 'undo-tree-redo)
 (global-set-key (kbd "M-d") 'ace-jump-mode)
-(global-set-key (kbd "s-e") 'expectations-execute)
 (global-set-key (kbd "s-Y") 'auto-complete-mode)
 (global-set-key (kbd "s-g") 'helm-google-suggest)
 (global-set-key (kbd "s-/") 'ac-start)  ;; temacs

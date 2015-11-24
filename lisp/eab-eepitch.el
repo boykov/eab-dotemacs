@@ -8,26 +8,24 @@
 (eab/bind-path eab/maxima-path)
 (eab/bind-path eab/ipython-path)
 
-;; badstyle
+(defun eab/run-ansi (prog buf)
+  (let ((buffer (get-buffer (concat "*" buf "*"))))
+    (if buffer
+        (switch-to-buffer-other-window buffer)
+      (ansi-term prog buf))))
 
-(defun eab/eepitch-buffer-end ()
+(defun eepitch-ansi-term (sym)
+  (interactive)
+  (shell-command (concat "echo \"" eab/eegchannel-path " " sym " /bin/bash\" > " eab/eeansi-path))
+  (eechannel sym)
   (save-window-excursion
-    (let ((cur (current-buffer)))
-      (switch-to-buffer-other-window eepitch-target-buffer)
-      (goto-char (point-max))
-      (switch-to-buffer-other-window cur))))
+    (eepitch `(eab/run-ansi eab/eeansi-path (concat "ansi-term" ,sym))))
+  (switch-to-buffer-other-window (concat "*ansi-term" sym "*")))
 
-;; TODO (buffer-name) -> (file-name-nondirectory (buffer-file-name))
-(defun eab/mpl-prepare ()
-  ;; Frozen
-  (if (string= "*maple 117*" (buffer-name eepitch-target-buffer))
-      (shell-command (concat "scp " buffer-file-name " user@192.168.0.140:" (buffer-name))))
-  (eab/maplev-mint-region (ee-bol) (ee-eol)))
-
-(defun eab/sage-prepare (line)
-  (if (string-match "sage: " line)
-      (list (substring line 6) 't)
-    (list "" 't)))
+(defun eab/in-target-buffer? (str)
+  (if (<= (+ (length str) 1) (length (buffer-name eepitch-target-buffer)))
+      (string= (substring (buffer-name eepitch-target-buffer) 0 (+ (length str) 1))
+               (concat "*" str))))
 
 (defun eab/ansi-prepare (line)
   (if (or (string-match "^$ " line)
@@ -35,14 +33,18 @@
       (list (substring line 2) 't)
     (list line 't)))
 
+(defun eab/py-prepare (line)
+  (pymacs-eval (concat "r\"\"\"" line " \"\"\".strip().split(\">>> \")[-1]")))
+
 ;; TODO здесь, вместо рассмотрения различных вариантов(т.е. логика в коде)
 ;; попробовать применить табличный метод (логика в таблице)
 (defun eab/this-line (line)
   ;; return true or false in depending on
-  (cond ((eab/in-target-buffer? "sage -python")
-         (list (eab/py-prepare line) t))
-        ((eab/in-target-buffer? "sage")
-         (eab/sage-prepare line))
+  (cond (
+	;;  (eab/in-target-buffer? "sage -python")
+        ;;  (list (eab/py-prepare line) t))
+        ;; ((eab/in-target-buffer? "sage")
+        ;;  (eab/sage-prepare line))
         ((eab/in-target-buffer? "ansi")
          (eab/ansi-prepare line))
         ;; ((eab/in-target-buffer? "maple")
@@ -53,10 +55,28 @@
          (list (eab/py-prepare line) t))
         ((eab/in-target-buffer? "ipython")
          (list (eab/py-prepare line) t))
-        (t (list line 't))))
+        (t (list line 't)))))
 
-(defun eab/py-prepare (line)
-  (pymacs-eval (concat "r\"\"\"" line " \"\"\".strip().split(\">>> \")[-1]")))
+(defun eab/wrap-eepitch-this (line)
+  (interactive)
+  ;; (if (string-match "^\\(.*\\)" line)             ; lines with a red star
+  ;;     (ee-eval-string (match-string 1 line))       ; are eval'ed -
+  (if (eab/in-target-buffer? "ansi")
+      (eechannel-send nil (concat line "\n"))
+    (progn
+      (eepitch-prepare-target-buffer)	; for other lines reconstruct the
+      (eepitch-display-target-buffer)	; target buffer, display it, make
+      (eepitch-not-this-buffer)  ; sure it's a different buffer, and
+      (eepitch-line line))))	   ; pitch the line to the target.
+
+;; badstyle
+
+(defun eab/eepitch-buffer-end ()
+  (save-window-excursion
+    (let ((cur (current-buffer)))
+      (switch-to-buffer-other-window eepitch-target-buffer)
+      (goto-char (point-max))
+      (switch-to-buffer-other-window cur))))
 
 ;; TODO (buffer-name) -> (file-name-nondirectory (buffer-file-name))
 (defun eab/eepitch-this-line (&optional arg)
@@ -74,17 +94,19 @@
                 (eab/wrap-eepitch-this line))))
           (ee-next-line 1)))))
 
-(defun eab/wrap-eepitch-this (line)
-  (interactive)
-  ;; (if (string-match "^\\(.*\\)" line)             ; lines with a red star
-  ;;     (ee-eval-string (match-string 1 line))       ; are eval'ed -
-  (if (eab/in-target-buffer? "ansi")
-      (eechannel-send nil (concat line "\n"))
-    (progn
-      (eepitch-prepare-target-buffer)        ; for other lines reconstruct the
-      (eepitch-display-target-buffer)      ; target buffer, display it, make
-      (eepitch-not-this-buffer)          ; sure it's a different buffer, and
-      (eepitch-line line))))           ; pitch the line to the target.
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; TODO (buffer-name) -> (file-name-nondirectory (buffer-file-name))
+(defun eab/mpl-prepare ()
+  ;; Frozen
+  (if (string= "*maple 117*" (buffer-name eepitch-target-buffer))
+      (shell-command (concat "scp " buffer-file-name " user@192.168.0.140:" (buffer-name))))
+  (eab/maplev-mint-region (ee-bol) (ee-eol)))
+
+(defun eab/sage-prepare (line)
+  (if (string-match "sage: " line)
+      (list (substring line 6) 't)
+    (list "" 't)))
 
 (defun moz-send (string)
   "Send a string for evaluation to the inferior Mozilla process."
@@ -189,32 +211,13 @@
        ((eab/in-target-buffer? "ipython")
         (eab/py-execute-region st en))))))
 
-(defun eab/in-target-buffer? (str)
-  (if (<= (+ (length str) 1) (length (buffer-name eepitch-target-buffer)))
-      (string= (substring (buffer-name eepitch-target-buffer) 0 (+ (length str) 1))
-               (concat "*" str))))
-
 (defun eab/run-eshell (buf)
   (let ((buffer (get-buffer (concat "*" buf "*"))))
     (if buffer
         (switch-to-buffer buffer)
       (eshell))))
 
-(defun eab/run-ansi (prog buf)
-  (let ((buffer (get-buffer (concat "*" buf "*"))))
-    (if buffer
-        (switch-to-buffer-other-window buffer)
-      (ansi-term prog buf))))
-
 (defun eepitch-eshell2  () (interactive) (eepitch `(eab/run-eshell "eshell")))
-
-(defun eepitch-ansi-term (sym)
-  (interactive)
-  (shell-command (concat "echo \"" eab/eegchannel-path " " sym " /bin/bash\" > " eab/eeansi-path))
-  (eechannel sym)
-  (save-window-excursion
-    (eepitch `(eab/run-ansi eab/eeansi-path (concat "ansi-term" ,sym))))
-  (switch-to-buffer-other-window (concat "*ansi-term" sym "*")))
 
 (defun eepitch-sage  () (interactive) (eepitch-comint "sage"  "sage"))
 (defun eepitch-php  () (interactive) (eepitch-comint "php"  "phpsh"))

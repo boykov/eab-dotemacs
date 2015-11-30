@@ -130,5 +130,8 @@
 (setq org-log-done (quote time))
 (setq org-log-into-drawer t)
 
+(defsubst org-set-local (var value)
+  "Make VAR local in current buffer and set it to VALUE."
+  (set (make-local-variable var) value))
 
 (provide 'eab-org)

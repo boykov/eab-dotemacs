@@ -718,6 +718,7 @@
   (define-key org-mode-map (kbd "M-p") 'org-end-of-line)
   (define-key org-mode-map (kbd "M-g") 'org-kill-line)
   (define-key org-mode-map (kbd "M-v") 'org-yank)
+  (define-key org-mode-map (kbd "M-RET") (ilam (org-insert-heading nil)))
   (define-key org-mode-map (kbd "M-N") 'org-backward-sentence)
   (define-key org-mode-map (kbd "M-M") 'org-forward-sentence)
   (define-key org-mode-map (kbd "C-M-u") 'outline-previous-visible-heading)

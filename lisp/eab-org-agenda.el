@@ -38,9 +38,9 @@
 	      ;; ("H" "Chrono" tags "LEVEL<4+repeat-norepeat+CLOCK>=\"<-1y>\"|LEVEL<3+repeat" nil)
 	      ("F" "frequency" tags "+CLOCKSUM={[3-9]d.*}+CLOCK>=\"<-1m>\"-ARCHIVE-noagenda" nil)
 	      ("Q" "all" tags "+CLOCKSUM<=\"0:25\"+CLOCKSUM>\"0:05\"-ARCHIVE-noagenda" nil)
-	      ("H" "Chrono" tags "+TODO=\"TODO\"-ARCHIVE-noagenda|+CLOCK>=\"<-1y>\"-ARCHIVE-noagenda")
-	      ("W" "Work" tags "w1c+TODO=\"TODO\"-ARCHIVE|+CLOCK>=\"<-1y>\"+w1c-ARCHIVE-noagenda" nil)
-	      ("M" "Work" tags "+CLOCK>=\"<-6m>\"+media" nil)
+	      ("H" "Chrono" tags "-ARCHIVE-noagenda" ((org-agenda-skip-function 'eab/skip-old)))
+	      ("W" "Work" tags "+w1c-ARCHIVE-noagenda" ((org-agenda-skip-function 'eab/skip-old)))
+	      ("M" "Work" tags "+media" ((org-agenda-skip-function 'eab/skip-old)))
 	      ("D" "Day" tags "+CLOCK>=\"<-2d>\"+CLOCK<=\"<-1d>\"-ARCHIVE-noagenda" nil)
 	      ("J" "Chrono" tags "LEVEL<5+CLOCK>=\"<-5d>\"-ARCHIVE-noagenda" nil)
 	      ;; ("J" "Chrono" tags "LEVEL<3+repeat|LEVEL<4+repeat+ЖЖ-ARCHIVE" nil)
@@ -72,6 +72,26 @@
 (setq eab/agenda-M-command (concat "*Org Agenda(M:" (cadddr (assoc "M" org-agenda-custom-commands)) ")*"))
 
 (setq eab/agenda-a-command "*Org Agenda(a)*")
+
+(defun eab/org-clock-get-last-clock-out-time ()
+  "Get the last clock-out time for the current headline."
+  (save-excursion
+    (let ((end (save-excursion (or (outline-next-heading) (point-max)))))
+      (when (re-search-forward (concat org-clock-string
+				       ".*\\]--\\(\\[[^]]+\\]\\)") end t)
+	(org-time-string-to-time (match-string 1))))))
+
+(defun eab/skip-old ()
+    (let ((next-headline (save-excursion (or (outline-next-heading) (point-max)))))
+      (if (eab/is-newer "2014-11-27")
+	  nil
+	next-headline)))
+
+(defun eab/is-newer (date)
+  (let ((time (ignore-errors (eab/org-clock-get-last-clock-out-time))))
+    (if (and time (> (org-float-time time) (org-float-time (apply 'encode-time (org-parse-time-string date)))))
+	't
+      nil)))
 
 (defun eab/org-insert-link-fast ()
   (interactive)

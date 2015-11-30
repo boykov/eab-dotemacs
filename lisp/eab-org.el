@@ -87,6 +87,8 @@
 (add-hook 'org-mode-hook (lambda () (toggle-truncate-lines)))
 
 (setq org-export-default-language "ru")
+(setq org-export-with-broken-links 't)
+
 
 (setq org-completion-use-ido t)
 

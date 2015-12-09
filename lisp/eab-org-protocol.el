@@ -2,6 +2,7 @@
 
 (require 'org-protocol)
 
+;; TODO path: org-directory vs archive?
 (setq org-protocol-project-alist
       `((,eab/org-publish-directory-file
          :online-suffix ".html"

@@ -1,11 +1,11 @@
 ;; DONE Директория не должна быть та же!
 (setq org-publish-project-alist
       `(("html-base"
-	 :base-directory ,org-directory
+	 :base-directory ,(concat org-directory "archive/")
 	 :exclude "timeline.org"
-	 :publishing-directory ,eab/org-publish-directory
-	 :base-url ,eab/org-publish-directory-file
-	 :working-directory ,eab/org-publish-directory
+	 :publishing-directory ,(concat eab/org-publish-directory "archive/")
+	 :base-url ,(concat eab/org-publish-directory-file "archive/")
+	 :working-directory ,(concat eab/org-publish-directory "archive/")
 	 :online-suffix ".html"
 	 :working-suffix ".org"
 	 ;; :recursive t
@@ -104,6 +104,7 @@
 	 :recursive t
 	 :publishing-function org-publish-attachment
 	 )
+;; TODO path: org-directory vs archive
 	("pdf"
 	 :base-directory ,org-directory
 	 :publishing-directory ,eab/org-publish-directory

@@ -53,18 +53,18 @@
 (setq org-bbdb-anniversary-field 'birthday)
 
 ;; Set to the name of the file where new notes will be stored
-(setq org-mobile-inbox-for-pull (concat org-directory "flagged.org"))
+(setq org-mobile-inbox-for-pull (concat org-directory "archive/flagged.org"))
 (setq org-mobile-files
       (mapcar (lambda (x)
-		(concat org-directory x))
+		(concat org-directory "archive/" x))
 	      '(
 		"refile.org"
 		"todo.org"
 		)))
 
-(setq org-default-notes-file (concat org-directory "refile.org"))
+(setq org-default-notes-file (concat org-directory "archive/refile.org"))
 
-(setq org-archive-location (concat org-directory "archive.org::* From %s"))
+(setq org-archive-location (concat org-directory "archive/archive.org::* From %s"))
 (setq org-archive-mark-done nil)
 (setq org-archive-default-command 'org-archive-set-tag)
 
@@ -75,10 +75,10 @@
 (setq
  org-capture-templates
  `(
-   ("t" "Todo" entry (file ,(concat org-directory "refile.org")) "* TODO %?\n  %u\n  %a\n  %i")
-   ("n" "note" entry (file ,(concat org-directory "refile.org")) "* %?              :NOTE:\n  %u\n  %a\n  %i")
-   ("N" "NOTCH" entry (file ,(concat org-directory "refile.org")) "* NOTCH %?\n  SCHEDULED: <2013-12-18 Ср. 01:30 .+1y>\n  %u\n  %a")
-   ("w" "org-protocol" entry (file ,(concat org-directory "refile.org")) "* Review %c  :NOTE:\n  %U\n  %i" :immediate-finish 1)))
+   ("t" "Todo" entry (file ,(concat org-directory "archive/refile.org")) "* TODO %?\n  %u\n  %a\n  %i")
+   ("n" "note" entry (file ,(concat org-directory "archive/refile.org")) "* %?              :NOTE:\n  %u\n  %a\n  %i")
+   ("N" "NOTCH" entry (file ,(concat org-directory "archive/refile.org")) "* NOTCH %?\n  SCHEDULED: <2013-12-18 Ср. 01:30 .+1y>\n  %u\n  %a")
+   ("w" "org-protocol" entry (file ,(concat org-directory "archive/refile.org")) "* Review %c  :NOTE:\n  %U\n  %i" :immediate-finish 1)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 

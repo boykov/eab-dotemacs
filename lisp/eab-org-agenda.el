@@ -14,11 +14,11 @@
 ;; see file:eab-hron-lib.el
 (setq org-agenda-files
       (remove-if
-       (lambda (s) (or (string= s (concat org-directory "archive.org"))
+       (lambda (s) (or (string= s (concat org-directory "archive/archive.org"))
 		       (string= s (concat org-directory "clock/level-0.org"))
 		       (member s (file-expand-wildcards (concat org-directory "clock/*arch.org")))))
        (append
-	(file-expand-wildcards (concat org-directory "*.org"))
+	(file-expand-wildcards (concat org-directory "archive/*.org"))
 	(file-expand-wildcards (concat org-directory "clock/*.org")))))
 
 (setq org-agenda-custom-commands

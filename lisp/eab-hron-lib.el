@@ -203,7 +203,7 @@
 
 (setq eab/nightly-scope
       (mapcar (lambda (x)
-		(concat org-directory "nightly/" x))
+		(concat org-directory "gen/nightly/" x))
 	      '("hron.org"
 		"improve.org"
 		"media.org"
@@ -270,7 +270,7 @@
   (org-update-all-dblocks)
   (save-buffer)
   (org-publish-remove-all-timestamps)
-  (org-publish-project "html-nightly" t)
+  ;; (org-publish-project "html-nightly" t)
   (ignore-errors (kill-buffer "time-reports-nightly.org"))
   (shell-command
    (concat "cp -f " org-directory "templates/time-reports.org " org-directory "gen/time-reports-nightly.org"))

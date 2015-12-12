@@ -44,10 +44,10 @@
 	 :author-info nil
 	 :creator-info nil)
 	("html-nightly"
-	 :base-directory ,(concat org-directory "nightly/")
-	 :publishing-directory ,(concat eab/org-publish-directory "nightly/")
-	 :base-url ,(concat eab/org-publish-directory-file "nightly/")
-	 :working-directory ,(concat eab/org-publish-directory "nightly/")
+	 :base-directory ,(concat org-directory "gen/nightly/")
+	 :publishing-directory ,(concat eab/org-publish-directory "gen/nightly/")
+	 :base-url ,(concat eab/org-publish-directory-file "gen/nightly/")
+	 :working-directory ,(concat eab/org-publish-directory "gen/nightly/")
 	 :online-suffix ".html"
 	 :working-suffix ".org"
 	 :recursive t
@@ -99,24 +99,24 @@
 	;;  :author-info nil
 	;;  :creator-info nil)
 	("org-static"
-	 :base-directory ,org-directory
+	 :base-directory ,(concat org-directory "css/")
 	 :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf"
-	 :publishing-directory ,eab/org-publish-directory
+	 :publishing-directory ,(concat eab/org-publish-directory "css")
 	 :recursive t
 	 :publishing-function org-publish-attachment
 	 )
 ;; TODO path: org-directory vs archive
-	("pdf"
-	 :base-directory ,org-directory
-	 :publishing-directory ,eab/org-publish-directory
-	 :working-directory ,eab/org-publish-directory
-	 :recursive t
-	 :section_numbers nil
-	 :table-of-contents nil
-	 :base-extension "org"
-	 :publishing-function org-latex-publish-to-pdf
-	 :author-info nil
-	 :creator-info nil)
+	;; ("pdf"
+	;;  :base-directory ,org-directory
+	;;  :publishing-directory ,eab/org-publish-directory
+	;;  :working-directory ,eab/org-publish-directory
+	;;  :recursive t
+	;;  :section_numbers nil
+	;;  :table-of-contents nil
+	;;  :base-extension "org"
+	;;  :publishing-function org-latex-publish-to-pdf
+	;;  :author-info nil
+	;;  :creator-info nil)
 	("html" :components ("html-base" "org-static"))))
 
 (provide 'eab-org-publish)

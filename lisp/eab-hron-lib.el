@@ -66,7 +66,7 @@
 
 ;; See `eab/org-file' in eab-path-org.el
 
-(setq eab/org-file (concat org-directory "current-time.el"))
+(setq eab/org-file (concat org-directory "clock/current-time.el"))
 
 (if (file-exists-p eab/org-file)
     (load eab/org-file)) ;; (setq eab/hron-current-time ..
@@ -235,11 +235,11 @@
     (mapcar
      (lambda (x)
        (shell-command
-	(concat "grep -v -e \"^\\#\\+\" " org-directory "clock/" x " > " org-directory name "/" x )))
+	(concat "grep -v -e \"^\\#\\+\" " org-directory "clock/" x " > " org-directory "gen/" name "/" x )))
 	    fnames)
     (shell-command (concat org-directory "create-" name ".sh"))
     (mapcar (lambda (x)
-	      (shell-command (concat "rm -f " org-directory name "/" x)))
+	      (shell-command (concat "rm -f " org-directory "gen/" name "/" x)))
 	    fnames))
   )
 
@@ -250,7 +250,7 @@
      (let ((buf (get-file-buffer x)))
        (if buf (kill-buffer buf))))
      (eab/nightly-scope))
-  (shell-command (concat "rm " org-directory "nightly/*")))
+  (shell-command (concat "rm " org-directory "gen/nightly/*")))
 
 (defun eab/update-all-dblocks ()
   (interactive)

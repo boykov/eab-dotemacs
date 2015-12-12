@@ -39,6 +39,7 @@
 	 :sitemap-filename "sitemap.org"  ; ... call it sitemap.org (it's the default)...
 	 :sitemap-title "Sitemap"         ; ... with title 'Sitemap'.
 
+	 :makeindex t
 	 :style-include-default t
 	 :author-info nil
 	 :creator-info nil)

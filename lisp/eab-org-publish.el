@@ -69,7 +69,7 @@
 	 :working-directory ,(concat eab/org-publish-directory "gen/")
 	 :online-suffix ".html"
 	 :working-suffix ".org"
-	 :recursive t
+	 ;; :recursive t
 	 :with-drawers ("CLOCK")
 	 :section_numbers nil
 	 :table-of-contents nil

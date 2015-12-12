@@ -273,7 +273,7 @@
   ;; (org-publish-project "html-nightly" t)
   (ignore-errors (kill-buffer "time-reports-nightly.org"))
   (shell-command
-   (concat "cp -f " org-directory "templates/time-reports.org " org-directory "gen/time-reports-nightly.org"))
+   (concat "cp -f " org-directory "templates/time-reports " org-directory "gen/time-reports-nightly.org"))
   (find-file (concat org-directory "gen/time-reports-nightly.org"))
   (auto-revert-buffers)
   (org-update-all-dblocks)
